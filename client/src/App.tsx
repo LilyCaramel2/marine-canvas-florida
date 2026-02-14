@@ -1,38 +1,65 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
-import Home from "./pages/Home";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
+// Pages
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Services from "./pages/Services";
+import ServiceBiminiTops from "./pages/ServiceBiminiTops";
+import ServiceEnclosures from "./pages/ServiceEnclosures";
+import ServiceBoatCovers from "./pages/ServiceBoatCovers";
+import ServiceUpholstery from "./pages/ServiceUpholstery";
+import Gallery from "./pages/Gallery";
+import Blog from "./pages/Blog";
+import Contact from "./pages/Contact";
+import SailingWithUs from "./pages/SailingWithUs";
+import NotFound from "./pages/NotFound";
 
 function Router() {
   return (
     <Switch>
-      <Route path={"/"} component={Home} />
-      <Route path={"/404"} component={NotFound} />
+      <Route path="/" component={Home} />
+      <Route path="/about" component={About} />
+      <Route path="/services" component={Services} />
+      <Route path="/services/bimini-tops" component={ServiceBiminiTops} />
+      <Route path="/services/enclosures" component={ServiceEnclosures} />
+      <Route path="/services/boat-covers" component={ServiceBoatCovers} />
+      <Route path="/services/upholstery" component={ServiceUpholstery} />
+      <Route path="/gallery" component={Gallery} />
+      <Route path="/blog" component={Blog} />
+      <Route path="/contact" component={Contact} />
+      <Route path="/sailing-with-us" component={SailingWithUs} />
+      <Route path="/404" component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
     </Switch>
   );
 }
 
-// NOTE: About Theme
-// - First choose a default theme according to your design style (dark or light bg), than change color palette in index.css
-//   to keep consistent foreground/background color across components
-// - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
-
 function App() {
   return (
     <ErrorBoundary>
       <ThemeProvider
         defaultTheme="light"
-        // switchable
+        switchable
       >
         <TooltipProvider>
           <Toaster />
-          <Router />
+          <div className="min-h-screen flex flex-col bg-background text-text transition-colors duration-300">
+            <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-background focus:p-3 focus:rounded-md focus:text-primary focus:outline-none focus:ring-2 focus:ring-primary">
+              Skip to main content
+            </a>
+            <Navbar />
+            <main id="main-content" className="flex-grow">
+              <Router />
+            </main>
+            <Footer />
+          </div>
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>
