@@ -1,9 +1,27 @@
-import React from 'react';
+'use client';
+
 import { Link } from 'wouter';
 import { Facebook, Instagram, Youtube, Mail, Phone, MapPin, Heart, Anchor } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+
+  // Service links with proper routing
+  const serviceLinks = [
+    { label: 'Custom Bimini Tops', path: '/services/bimini-tops' },
+    { label: 'Boat Enclosures', path: '/services/enclosures' },
+    { label: 'Protective Covers', path: '/services/boat-covers' },
+    { label: 'Marine Upholstery', path: '/services/upholstery' },
+    { label: 'View All Projects', path: '/projects' },
+  ];
+
+  const quickLinks = [
+    { label: 'Home', path: '/' },
+    { label: 'About Us', path: '/about' },
+    { label: 'Gallery', path: '/gallery' },
+    { label: 'Sailing With Us', path: '/sailing-with-us' },
+    { label: 'Blog', path: '/blog' },
+  ];
 
   return (
     <footer className="relative bg-gradient-to-b from-primary via-primary to-primary/95 text-white transition-colors duration-300 overflow-hidden">
@@ -33,7 +51,7 @@ const Footer = () => {
                   href="https://www.facebook.com/adriaticmarinecanvas/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 bg-white/10 hover:bg-accent rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-accent/50"
+                  className="w-10 h-10 bg-white/10 hover:bg-accent rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-accent/50 cursor-pointer"
                   aria-label="Facebook"
                 >
                   <Facebook className="w-5 h-5" />
@@ -42,7 +60,7 @@ const Footer = () => {
                   href="https://instagram.com/adriatic_marinecanvas/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 bg-white/10 hover:bg-secondary rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-secondary/50"
+                  className="w-10 h-10 bg-white/10 hover:bg-secondary rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-secondary/50 cursor-pointer"
                   aria-label="Instagram"
                 >
                   <Instagram className="w-5 h-5" />
@@ -51,7 +69,7 @@ const Footer = () => {
                   href="https://youtube.com/channel/AdriaticLux"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 bg-white/10 hover:bg-secondary rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-secondary/50"
+                  className="w-10 h-10 bg-white/10 hover:bg-secondary rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-secondary/50 cursor-pointer"
                   aria-label="YouTube"
                 >
                   <Youtube className="w-5 h-5" />
@@ -63,31 +81,16 @@ const Footer = () => {
             <div className="group">
               <h3 className="font-bold text-lg mb-6 text-accent group-hover:text-yellow-200 transition-colors">Our Services</h3>
               <ul className="space-y-3 text-sm">
-                <li className="transform hover:translate-x-1 transition-transform duration-300">
-                  <Link to="/services/bimini-tops" className="hover:text-accent transition-colors opacity-90 hover:opacity-100 underline hover:no-underline cursor-pointer">
-                    Custom Bimini Tops
-                  </Link>
-                </li>
-                <li className="transform hover:translate-x-1 transition-transform duration-300">
-                  <Link to="/services/enclosures" className="hover:text-accent transition-colors opacity-90 hover:opacity-100 underline hover:no-underline cursor-pointer">
-                    Boat Enclosures
-                  </Link>
-                </li>
-                <li className="transform hover:translate-x-1 transition-transform duration-300">
-                  <Link to="/services/boat-covers" className="hover:text-accent transition-colors opacity-90 hover:opacity-100 underline hover:no-underline cursor-pointer">
-                    Protective Covers
-                  </Link>
-                </li>
-                <li className="transform hover:translate-x-1 transition-transform duration-300">
-                  <Link to="/services/upholstery" className="hover:text-accent transition-colors opacity-90 hover:opacity-100 underline hover:no-underline cursor-pointer">
-                    Marine Upholstery
-                  </Link>
-                </li>
-                <li className="transform hover:translate-x-1 transition-transform duration-300">
-                  <Link to="/projects" className="hover:text-accent transition-colors opacity-90 hover:opacity-100 underline hover:no-underline cursor-pointer">
-                    View All Projects
-                  </Link>
-                </li>
+                {serviceLinks.map((link) => (
+                  <li key={link.path} className="transform hover:translate-x-1 transition-transform duration-300">
+                    <Link
+                      to={link.path}
+                      className="inline-block hover:text-yellow-200 transition-colors opacity-90 hover:opacity-100 underline hover:no-underline cursor-pointer font-medium"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
 
@@ -95,31 +98,16 @@ const Footer = () => {
             <div className="group">
               <h3 className="font-bold text-lg mb-6 text-accent group-hover:text-yellow-200 transition-colors">Quick Links</h3>
               <ul className="space-y-3 text-sm">
-                <li className="transform hover:translate-x-1 transition-transform duration-300">
-                  <Link to="/" className="hover:text-accent transition-colors opacity-90 hover:opacity-100 underline hover:no-underline cursor-pointer">
-                    Home
-                  </Link>
-                </li>
-                <li className="transform hover:translate-x-1 transition-transform duration-300">
-                  <Link to="/about" className="hover:text-accent transition-colors opacity-90 hover:opacity-100 underline hover:no-underline cursor-pointer">
-                    About Us
-                  </Link>
-                </li>
-                <li className="transform hover:translate-x-1 transition-transform duration-300">
-                  <Link to="/gallery" className="hover:text-accent transition-colors opacity-90 hover:opacity-100 underline hover:no-underline cursor-pointer">
-                    Gallery
-                  </Link>
-                </li>
-                <li className="transform hover:translate-x-1 transition-transform duration-300">
-                  <Link to="/sailing-with-us" className="hover:text-accent transition-colors opacity-90 hover:opacity-100 underline hover:no-underline cursor-pointer">
-                    Sailing With Us
-                  </Link>
-                </li>
-                <li className="transform hover:translate-x-1 transition-transform duration-300">
-                  <Link to="/blog" className="hover:text-accent transition-colors opacity-90 hover:opacity-100 underline hover:no-underline cursor-pointer">
-                    Blog
-                  </Link>
-                </li>
+                {quickLinks.map((link) => (
+                  <li key={link.path} className="transform hover:translate-x-1 transition-transform duration-300">
+                    <Link
+                      to={link.path}
+                      className="inline-block hover:text-yellow-200 transition-colors opacity-90 hover:opacity-100 underline hover:no-underline cursor-pointer font-medium"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
 
@@ -131,7 +119,7 @@ const Footer = () => {
                   href="https://maps.google.com/?q=495+Brady+Rd+Suite+J+Tarpon+Springs+FL+34689"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-start gap-3 hover:text-accent transition-colors group/item"
+                  className="flex items-start gap-3 hover:text-yellow-200 transition-colors group/item cursor-pointer"
                 >
                   <MapPin className="w-5 h-5 flex-shrink-0 mt-0.5 group-hover/item:animate-bounce" />
                   <span className="opacity-90 group-hover/item:opacity-100">
@@ -141,14 +129,14 @@ const Footer = () => {
                 </a>
                 <a
                   href="tel:+17272187157"
-                  className="flex items-center gap-3 hover:text-accent transition-colors group/item"
+                  className="flex items-center gap-3 hover:text-yellow-200 transition-colors group/item cursor-pointer"
                 >
                   <Phone className="w-5 h-5 flex-shrink-0 group-hover/item:animate-pulse" />
                   <span className="opacity-90 group-hover/item:opacity-100">(727) 218-7157</span>
                 </a>
                 <a
                   href="mailto:office@marinecanvasflorida.com"
-                  className="flex items-center gap-3 hover:text-accent transition-colors group/item"
+                  className="flex items-center gap-3 hover:text-yellow-200 transition-colors group/item cursor-pointer"
                 >
                   <Mail className="w-5 h-5 flex-shrink-0 group-hover/item:animate-pulse" />
                   <span className="opacity-90 group-hover/item:opacity-100 break-all">office@marinecanvasflorida.com</span>
@@ -167,11 +155,11 @@ const Footer = () => {
             href="https://www.carameldigital.online"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 group cursor-pointer"
+            className="flex items-center gap-3 group cursor-pointer hover:scale-105 transition-transform duration-300"
           >
             <div className="relative">
               <img
-                src="/caramel-lotus-logo.svg"
+                src="/caramel-lotus.png"
                 alt="Caramel Digital Studio"
                 className="w-12 h-12 object-contain group-hover:scale-110 transition-transform duration-300"
               />
@@ -191,47 +179,22 @@ const Footer = () => {
             </p>
             <p>&copy; {currentYear} Marine Canvas Florida. All rights reserved.</p>
             <div className="flex gap-6">
-              <Link to="/contact" className="hover:text-accent transition-colors underline hover:no-underline cursor-pointer">
+              <Link
+                to="/contact"
+                className="hover:text-yellow-200 transition-colors underline hover:no-underline cursor-pointer font-medium"
+              >
                 Privacy Policy
               </Link>
-              <Link to="/contact" className="hover:text-accent transition-colors underline hover:no-underline cursor-pointer">
+              <Link
+                to="/contact"
+                className="hover:text-yellow-200 transition-colors underline hover:no-underline cursor-pointer font-medium"
+              >
                 Terms of Service
               </Link>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Floating Animation Elements */}
-      <style>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-20px); }
-        }
-        @keyframes glow {
-          0%, 100% { box-shadow: 0 0 20px rgba(253, 185, 19, 0.3); }
-          50% { box-shadow: 0 0 30px rgba(253, 185, 19, 0.6); }
-        }
-        @keyframes pulse-glow {
-          0%, 100% { 
-            box-shadow: 0 0 10px rgba(253, 185, 19, 0.5), 
-                        0 0 20px rgba(253, 185, 19, 0.3);
-          }
-          50% { 
-            box-shadow: 0 0 20px rgba(253, 185, 19, 0.8), 
-                        0 0 40px rgba(253, 185, 19, 0.5);
-          }
-        }
-        .animate-float {
-          animation: float 3s ease-in-out infinite;
-        }
-        .animate-glow {
-          animation: glow 2s ease-in-out infinite;
-        }
-        .animate-pulse-glow {
-          animation: pulse-glow 2s ease-in-out infinite;
-        }
-      `}</style>
     </footer>
   );
 };
