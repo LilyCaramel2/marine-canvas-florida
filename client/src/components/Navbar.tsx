@@ -38,13 +38,16 @@ const Navbar = () => {
     <nav className={navbarClasses}>
       <div className="container mx-auto px-6 flex justify-between items-center">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity duration-300">
+        <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity duration-300">
           <img 
             src="https://private-us-east-1.manuscdn.com/sessionFile/kbuCeaZfrgJv7ecTDWFekd/sandbox/96UDgFpgJy05Lzp9RGvltf_1771113026600_na1fn_bWFyaW5lLWNhbnZhcy1sb2dv.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUva2J1Q2VhWmZyZ0p2N2VjVERXRmVrZC9zYW5kYm94Lzk2VURnRnBnSnkwNUx6cDlSR3ZsdGZfMTc3MTExMzAyNjYwMF9uYTFmbl9iV0Z5YVc1bExXTmhiblpoY3kxc2IyZHYucG5nP3gtb3NzLXByb2Nlc3M9aW1hZ2UvcmVzaXplLHdfMTkyMCxoXzE5MjAvZm9ybWF0LHdlYnAvcXVhbGl0eSxxXzgwIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzk4NzYxNjAwfX19XX0_&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=uj-rtqRvh-Mwg3HeOI3bufCtOLvQD1y4dEnH6hqHNFqpV6yKAA4ooNRqz6PoXkIcqMg7AhC-aAEeKBmq9OHClwlPn5Xo2KDvsW3fyUlYdpf0PY2vRIHai4R9bS8zRjo-Zq93SCY69l3JmcBXKC7so2HMU2rVP5jYoUFswv3EO7akq9LkJe4LC5Fr-sxD1ToCQndCFog-ZEX5nr7aLvfDXd09D0Cgx9FNag1x4KgkTYw-iKx2r2UMzfSpOJggfSu1iej43z2SeB5jRRrwAEPG18P69D5mn8EbFZ0BI6u1dN8IQ7b43MmtDkfOeTqjH8NXtRIdyp8dNY8L4hQeHfTjBw__"
             alt="Marine Canvas Florida Logo"
-            className="h-20 w-auto md:h-24 lg:h-28"
+            className="h-16 w-auto md:h-20 lg:h-24"
           />
-          <span className="hidden sm:inline font-bold text-xl md:text-2xl lg:text-3xl text-primary">Marine Canvas Florida</span>
+          <div className="hidden sm:flex flex-col">
+            <span className="font-bold text-lg md:text-xl text-primary leading-none">Marine Canvas</span>
+            <span className="font-bold text-sm md:text-base text-secondary">FLORIDA</span>
+          </div>
         </Link>
 
         {/* Navigation Links (Desktop) */}
