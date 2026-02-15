@@ -1,6 +1,6 @@
-import React from 'react';
 import { Link } from 'wouter';
 import { ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
@@ -19,7 +19,12 @@ const Hero = () => {
       {/* Content - Centered */}
       <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 md:px-12 max-w-4xl mx-auto">
         {/* Main Heading */}
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
+        <motion.h1 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-lg"
+        >
           Custom Marine Canvas:
           <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-100">
@@ -27,28 +32,46 @@ const Hero = () => {
           </span>
           <br />
           for Florida's Finest Vessels
-        </h1>
+        </motion.h1>
 
         {/* Subheading */}
-        <p className="text-lg md:text-2xl text-gray-100 mb-10 max-w-2xl drop-shadow-md leading-relaxed">
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="text-lg md:text-2xl text-gray-100 mb-10 max-w-2xl drop-shadow-md leading-relaxed"
+        >
           Protect and enhance your yacht or boat with bespoke canvas solutions, meticulously crafted for the demanding Florida marine environment in Tarpon Springs.
-        </p>
+        </motion.p>
 
         {/* CTA Buttons - Better Spacing */}
-        <div className="flex flex-col sm:flex-row gap-6 justify-center w-full">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="flex flex-col sm:flex-row gap-6 justify-center w-full"
+        >
           <Link to="/contact">
-            <a className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-xl">
+            <motion.a 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg transition-all duration-300 shadow-xl cursor-pointer"
+            >
               Request a Free Consultation
               <ArrowRight className="w-5 h-5" />
-            </a>
+            </motion.a>
           </Link>
           <Link to="/services">
-            <a className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/20 hover:bg-white/30 text-white font-bold rounded-lg transition-all duration-300 backdrop-blur-sm border border-white/40">
+            <motion.a 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/20 hover:bg-white/30 text-white font-bold rounded-lg transition-all duration-300 backdrop-blur-sm border border-white/40 cursor-pointer"
+            >
               Explore Our Craftsmanship
               <ArrowRight className="w-5 h-5" />
-            </a>
+            </motion.a>
           </Link>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

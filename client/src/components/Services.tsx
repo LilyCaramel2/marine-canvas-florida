@@ -1,5 +1,6 @@
-import React from 'react';
 import { Link } from 'wouter';
+import { motion } from 'framer-motion';
+import { fadeInUp, staggerContainer } from '../lib/animations';
 
 const Services = () => {
   const serviceCards = [
@@ -38,23 +39,45 @@ const Services = () => {
   return (
     <section id="services-grid" className="py-24 bg-background text-text transition-colors duration-300">
       <div className="container mx-auto px-6 max-w-7xl">
-        <h2 className="font-semibold text-4xl md:text-5xl lg:text-6xl text-center text-primary mb-16 leading-tight">
+        <motion.h2 
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="font-semibold text-4xl md:text-5xl lg:text-6xl text-center text-primary mb-16 leading-tight"
+        >
           Our Premium Marine Canvas & Upholstery Solutions
-        </h2>
-        <p className="text-base text-lg md:text-xl text-center text-text mb-16 max-w-4xl mx-auto leading-relaxed">
+        </motion.h2>
+        <motion.p 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="text-base text-lg md:text-xl text-center text-text mb-16 max-w-4xl mx-auto leading-relaxed"
+        >
           From unparalleled sun protection to complete weatherproofing and interior comfort, Marine Canvas Florida offers a full spectrum of custom solutions to protect and enhance your vessel across the Tampa Bay area, including Tarpon Springs and St. Petersburg.
-        </p>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12">
+        </motion.p>
+        <motion.div 
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12"
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          variants={staggerContainer}
+        >
           {serviceCards.map((service, index) => (
-            <div key={index} className="bg-card p-8 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300 text-center flex flex-col items-center justify-between border border-border">
+            <motion.div 
+              key={index} 
+              variants={fadeInUp}
+              className="bg-card p-8 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300 text-center flex flex-col items-center justify-between border border-border hover:scale-105 hover:border-accent"
+            >
               <h3 className="font-medium text-2xl text-primary mb-4">{service.title}</h3>
               <p className="text-base text-text flex-grow mb-6 leading-relaxed">{service.description}</p>
-              <Link to={service.link} className="btn-primary inline-block">
+              <Link to={service.link} className="btn-primary inline-block hover:shadow-lg transition-all duration-300">
                 Learn More →
               </Link>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
