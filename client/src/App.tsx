@@ -30,11 +30,13 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/about" component={About} />
       <Route path="/services" component={Services} />
-      <Route path="/services/:slug" component={ServiceDetail} />
+      {/* Specific service routes MUST come before generic :slug route */}
       <Route path="/services/bimini-tops" component={ServiceBiminiTops} />
       <Route path="/services/enclosures" component={ServiceEnclosures} />
       <Route path="/services/boat-covers" component={ServiceBoatCovers} />
       <Route path="/services/upholstery" component={ServiceUpholstery} />
+      {/* Generic service detail route */}
+      <Route path="/services/:slug" component={ServiceDetail} />
       <Route path="/gallery" component={Gallery} />
       <Route path="/projects" component={Projects} />
       <Route path="/projects/:id" component={ProjectDetail} />
