@@ -55,7 +55,7 @@ const SailingContactForm = () => {
       <div
         className="relative w-full h-80 bg-cover bg-center mb-12"
         style={{
-          backgroundImage: 'url(https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1200&h=400&fit=crop)',
+          backgroundImage: 'url(https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&h=400&fit=crop)',
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30" />

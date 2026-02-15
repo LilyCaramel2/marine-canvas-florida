@@ -105,7 +105,7 @@ Our enclosures are designed for minimal maintenance. We provide detailed care in
 
 Boat enclosures typically range from $3,500 to $12,000+ depending on size, type, and customization. Custom quotes available upon consultation.
     `,
-    image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=400&fit=crop',
+    image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=400&fit=crop',
     icon: '🛡️',
     features: [
       'Crystal clear acrylic panels',
@@ -236,7 +236,7 @@ Restore vintage or damaged upholstery to like-new condition.
 
 Marine upholstery projects typically range from $2,000 to $15,000+ depending on scope and materials. Custom quotes provided after consultation.
     `,
-    image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&h=400&fit=crop',
+    image: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&h=400&fit=crop',
     icon: '🪑',
     features: [
       'Custom design consultation',
@@ -260,11 +260,11 @@ export const serviceProjects = [
   { id: 5, service: 'bimini-tops', name: 'Bimini Project 5', description: 'Dual-layer Bimini protection system', image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=400&fit=crop' },
 
   // Enclosure Projects
-  { id: 6, service: 'enclosures', name: 'Enclosure Project 1', description: 'Full cabin enclosure with ventilation', image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=400&fit=crop' },
-  { id: 7, service: 'enclosures', name: 'Enclosure Project 2', description: 'Bimini-to-enclosure conversion', image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=400&fit=crop' },
-  { id: 8, service: 'enclosures', name: 'Enclosure Project 3', description: 'Climate-controlled cabin enclosure', image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=400&fit=crop' },
-  { id: 9, service: 'enclosures', name: 'Enclosure Project 4', description: 'Removable panel enclosure system', image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=400&fit=crop' },
-  { id: 10, service: 'enclosures', name: 'Enclosure Project 5', description: 'Luxury yacht full enclosure', image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=400&fit=crop' },
+  { id: 6, service: 'enclosures', name: 'Enclosure Project 1', description: 'Full cabin enclosure with ventilation', image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=400&fit=crop' },
+  { id: 7, service: 'enclosures', name: 'Enclosure Project 2', description: 'Bimini-to-enclosure conversion', image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=400&fit=crop' },
+  { id: 8, service: 'enclosures', name: 'Enclosure Project 3', description: 'Climate-controlled cabin enclosure', image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=400&fit=crop' },
+  { id: 9, service: 'enclosures', name: 'Enclosure Project 4', description: 'Removable panel enclosure system', image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=400&fit=crop' },
+  { id: 10, service: 'enclosures', name: 'Enclosure Project 5', description: 'Luxury yacht full enclosure', image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=400&fit=crop' },
 
   // Boat Cover Projects
   { id: 11, service: 'boat-covers', name: 'Boat Cover Project 1', description: 'Full custom boat cover for 50ft vessel', image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=400&fit=crop' },
@@ -274,9 +274,9 @@ export const serviceProjects = [
   { id: 15, service: 'boat-covers', name: 'Boat Cover Project 5', description: 'Reinforced cover for harsh conditions', image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=400&fit=crop' },
 
   // Upholstery Projects
-  { id: 16, service: 'upholstery', name: 'Upholstery Project 1', description: 'Complete interior cushion suite', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop' },
-  { id: 17, service: 'upholstery', name: 'Upholstery Project 2', description: 'Luxury captain chair restoration', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop' },
-  { id: 18, service: 'upholstery', name: 'Upholstery Project 3', description: 'Custom cabin interior furnishings', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop' },
-  { id: 19, service: 'upholstery', name: 'Upholstery Project 4', description: 'Vintage yacht interior restoration', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop' },
-  { id: 20, service: 'upholstery', name: 'Upholstery Project 5', description: 'Modern luxury seating design', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop' },
+  { id: 16, service: 'upholstery', name: 'Upholstery Project 1', description: 'Complete interior cushion suite', image: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&h=400&fit=crop' },
+  { id: 17, service: 'upholstery', name: 'Upholstery Project 2', description: 'Luxury captain chair restoration', image: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&h=400&fit=crop' },
+  { id: 18, service: 'upholstery', name: 'Upholstery Project 3', description: 'Custom cabin interior furnishings', image: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&h=400&fit=crop' },
+  { id: 19, service: 'upholstery', name: 'Upholstery Project 4', description: 'Vintage yacht interior restoration', image: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&h=400&fit=crop' },
+  { id: 20, service: 'upholstery', name: 'Upholstery Project 5', description: 'Modern luxury seating design', image: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&h=400&fit=crop' },
 ];

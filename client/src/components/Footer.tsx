@@ -63,21 +63,31 @@ const Footer = () => {
             <div className="group">
               <h3 className="font-bold text-lg mb-6 text-accent group-hover:text-yellow-200 transition-colors">Our Services</h3>
               <ul className="space-y-3 text-sm">
-                {[
-                  { label: 'Custom Bimini Tops', href: '/services/bimini-tops' },
-                  { label: 'Boat Enclosures', href: '/services/enclosures' },
-                  { label: 'Protective Covers', href: '/services/boat-covers' },
-                  { label: 'Marine Upholstery', href: '/services/upholstery' },
-                  { label: 'View All Projects', href: '/projects' },
-                ].map((item, idx) => (
-                  <li key={idx} className="transform hover:translate-x-1 transition-transform">
-                    <Link to={item.href}>
-                      <a className="hover:text-accent transition-colors opacity-90 hover:opacity-100">
-                        {item.label}
-                      </a>
-                    </Link>
-                  </li>
-                ))}
+                <li className="transform hover:translate-x-1 transition-transform">
+                  <Link to="/services/bimini-tops" className="hover:text-accent transition-colors opacity-90 hover:opacity-100">
+                    Custom Bimini Tops
+                  </Link>
+                </li>
+                <li className="transform hover:translate-x-1 transition-transform">
+                  <Link to="/services/enclosures" className="hover:text-accent transition-colors opacity-90 hover:opacity-100">
+                    Boat Enclosures
+                  </Link>
+                </li>
+                <li className="transform hover:translate-x-1 transition-transform">
+                  <Link to="/services/boat-covers" className="hover:text-accent transition-colors opacity-90 hover:opacity-100">
+                    Protective Covers
+                  </Link>
+                </li>
+                <li className="transform hover:translate-x-1 transition-transform">
+                  <Link to="/services/upholstery" className="hover:text-accent transition-colors opacity-90 hover:opacity-100">
+                    Marine Upholstery
+                  </Link>
+                </li>
+                <li className="transform hover:translate-x-1 transition-transform">
+                  <Link to="/projects" className="hover:text-accent transition-colors opacity-90 hover:opacity-100">
+                    View All Projects
+                  </Link>
+                </li>
               </ul>
             </div>
 
@@ -85,21 +95,31 @@ const Footer = () => {
             <div className="group">
               <h3 className="font-bold text-lg mb-6 text-accent group-hover:text-yellow-200 transition-colors">Quick Links</h3>
               <ul className="space-y-3 text-sm">
-                {[
-                  { label: 'Home', href: '/' },
-                  { label: 'About Us', href: '/about' },
-                  { label: 'Gallery', href: '/gallery' },
-                  { label: 'Sailing With Us', href: '/sailing-with-us' },
-                  { label: 'Blog', href: '/blog' },
-                ].map((item, idx) => (
-                  <li key={idx} className="transform hover:translate-x-1 transition-transform">
-                    <Link to={item.href}>
-                      <a className="hover:text-accent transition-colors opacity-90 hover:opacity-100">
-                        {item.label}
-                      </a>
-                    </Link>
-                  </li>
-                ))}
+                <li className="transform hover:translate-x-1 transition-transform">
+                  <Link to="/" className="hover:text-accent transition-colors opacity-90 hover:opacity-100">
+                    Home
+                  </Link>
+                </li>
+                <li className="transform hover:translate-x-1 transition-transform">
+                  <Link to="/about" className="hover:text-accent transition-colors opacity-90 hover:opacity-100">
+                    About Us
+                  </Link>
+                </li>
+                <li className="transform hover:translate-x-1 transition-transform">
+                  <Link to="/gallery" className="hover:text-accent transition-colors opacity-90 hover:opacity-100">
+                    Gallery
+                  </Link>
+                </li>
+                <li className="transform hover:translate-x-1 transition-transform">
+                  <Link to="/sailing-with-us" className="hover:text-accent transition-colors opacity-90 hover:opacity-100">
+                    Sailing With Us
+                  </Link>
+                </li>
+                <li className="transform hover:translate-x-1 transition-transform">
+                  <Link to="/blog" className="hover:text-accent transition-colors opacity-90 hover:opacity-100">
+                    Blog
+                  </Link>
+                </li>
               </ul>
             </div>
 
@@ -149,11 +169,11 @@ const Footer = () => {
             </p>
             <p>&copy; {currentYear} Marine Canvas Florida. All rights reserved.</p>
             <div className="flex gap-6">
-              <Link to="/contact">
-                <a className="hover:text-accent transition-colors">Privacy Policy</a>
+              <Link to="/contact" className="hover:text-accent transition-colors">
+                Privacy Policy
               </Link>
-              <Link to="/contact">
-                <a className="hover:text-accent transition-colors">Terms of Service</a>
+              <Link to="/contact" className="hover:text-accent transition-colors">
+                Terms of Service
               </Link>
             </div>
           </div>

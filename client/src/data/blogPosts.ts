@@ -54,7 +54,7 @@ Proper maintenance extends the life of your canvas significantly:
     author: 'Marine Canvas Florida Team',
     date: '2026-02-10',
     category: 'Canvas Care',
-    image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=400&fit=crop',
+    image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=400&fit=crop',
     keywords: ['boat canvas', 'Bimini top', 'marine canvas Florida', 'canvas protection'],
     metaDescription: 'Complete guide to choosing the right boat canvas for Florida boaters. Learn about materials, options, and maintenance.'
   },
@@ -102,7 +102,7 @@ Your boat is a significant investment. Choosing quality marine canvas with Sunbr
     author: 'Marine Canvas Florida Team',
     date: '2026-02-08',
     category: 'Materials',
-    image: 'https://images.unsplash.com/photo-1567521464027-f127ff144326?w=800&h=400&fit=crop',
+    image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=400&fit=crop',
     keywords: ['Sunbrella fabric', 'marine canvas', 'boat protection', 'UV protection'],
     metaDescription: 'Learn why Sunbrella is the best choice for marine canvas. Compare fabric options and understand long-term value.'
   },
@@ -164,7 +164,7 @@ At Marine Canvas Florida, our expert installation team has decades of combined e
     author: 'Marine Canvas Florida Team',
     date: '2026-02-05',
     category: 'Installation',
-    image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&h=400&fit=crop',
+    image: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&h=400&fit=crop',
     keywords: ['boat enclosure', 'installation', 'marine canvas', 'boat upgrade'],
     metaDescription: 'Complete guide to boat enclosure installation. Learn what to expect and how to prepare your vessel.'
   },
