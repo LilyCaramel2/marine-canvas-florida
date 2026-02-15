@@ -26,6 +26,7 @@ import Privacy from "./pages/Privacy";
 import Cookies from "./pages/Cookies";
 import NotFound from "./pages/NotFound";
 import CookieConsent from "./components/CookieConsent";
+import TidioChatbot from "./components/TidioChatbot";
 
 function Router() {
   return (
@@ -75,6 +76,7 @@ function App() {
             </main>
             <Footer />
             <CookieConsent />
+            <TidioChatbot />
           </div>
         </TooltipProvider>
       </ThemeProvider>
