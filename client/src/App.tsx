@@ -22,7 +22,10 @@ import SailingWithUs from "./pages/SailingWithUs";
 import SailingContactForm from "./pages/SailingContactForm";
 import Projects from "./pages/Projects";
 import ProjectDetail from "./pages/ProjectDetail";
+import Privacy from "./pages/Privacy";
+import Cookies from "./pages/Cookies";
 import NotFound from "./pages/NotFound";
+import CookieConsent from "./components/CookieConsent";
 
 function Router() {
   return (
@@ -44,6 +47,8 @@ function Router() {
       <Route path="/contact" component={Contact} />
       <Route path="/sailing-with-us" component={SailingWithUs} />
       <Route path="/sailing-contact" component={SailingContactForm} />
+      <Route path="/privacy" component={Privacy} />
+      <Route path="/cookies" component={Cookies} />
       <Route path="/404" component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
@@ -69,6 +74,7 @@ function App() {
               <Router />
             </main>
             <Footer />
+            <CookieConsent />
           </div>
         </TooltipProvider>
       </ThemeProvider>

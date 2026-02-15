@@ -1,10 +1,11 @@
 'use client';
 
-import { Link } from 'wouter';
 import { Facebook, Instagram, Youtube, Mail, Phone, MapPin, Heart, Anchor } from 'lucide-react';
+import { useLocation } from 'wouter';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const [, setLocation] = useLocation();
 
   // Service links with proper routing
   const serviceLinks = [
@@ -22,6 +23,12 @@ const Footer = () => {
     { label: 'Sailing With Us', path: '/sailing-with-us' },
     { label: 'Blog', path: '/blog' },
   ];
+
+  // Handle navigation with proper mobile support
+  const handleNavigation = (path: string) => {
+    setLocation(path);
+    window.scrollTo(0, 0);
+  };
 
   return (
     <footer className="relative bg-gradient-to-b from-primary via-primary to-primary/95 text-white transition-colors duration-300 overflow-hidden">
@@ -83,12 +90,12 @@ const Footer = () => {
               <ul className="space-y-3 text-sm">
                 {serviceLinks.map((link) => (
                   <li key={link.path} className="transform hover:translate-x-1 transition-transform duration-300">
-                    <Link
-                      to={link.path}
-                      className="inline-block hover:text-yellow-200 transition-colors opacity-90 hover:opacity-100 underline hover:no-underline cursor-pointer font-medium"
+                    <button
+                      onClick={() => handleNavigation(link.path)}
+                      className="inline-block hover:text-yellow-200 transition-colors opacity-90 hover:opacity-100 underline hover:no-underline cursor-pointer font-medium text-left w-full p-0 m-0 bg-none border-none"
                     >
                       {link.label}
-                    </Link>
+                    </button>
                   </li>
                 ))}
               </ul>
@@ -100,12 +107,12 @@ const Footer = () => {
               <ul className="space-y-3 text-sm">
                 {quickLinks.map((link) => (
                   <li key={link.path} className="transform hover:translate-x-1 transition-transform duration-300">
-                    <Link
-                      to={link.path}
-                      className="inline-block hover:text-yellow-200 transition-colors opacity-90 hover:opacity-100 underline hover:no-underline cursor-pointer font-medium"
+                    <button
+                      onClick={() => handleNavigation(link.path)}
+                      className="inline-block hover:text-yellow-200 transition-colors opacity-90 hover:opacity-100 underline hover:no-underline cursor-pointer font-medium text-left w-full p-0 m-0 bg-none border-none"
                     >
                       {link.label}
-                    </Link>
+                    </button>
                   </li>
                 ))}
               </ul>
@@ -179,18 +186,18 @@ const Footer = () => {
             </p>
             <p>&copy; {currentYear} Marine Canvas Florida. All rights reserved.</p>
             <div className="flex gap-6">
-              <Link
-                to="/contact"
-                className="hover:text-yellow-200 transition-colors underline hover:no-underline cursor-pointer font-medium"
+              <button
+                onClick={() => handleNavigation('/privacy')}
+                className="hover:text-yellow-200 transition-colors underline hover:no-underline cursor-pointer font-medium bg-none border-none p-0 m-0"
               >
                 Privacy Policy
-              </Link>
-              <Link
-                to="/contact"
-                className="hover:text-yellow-200 transition-colors underline hover:no-underline cursor-pointer font-medium"
+              </button>
+              <button
+                onClick={() => handleNavigation('/cookies')}
+                className="hover:text-yellow-200 transition-colors underline hover:no-underline cursor-pointer font-medium bg-none border-none p-0 m-0"
               >
-                Terms of Service
-              </Link>
+                Cookie Policy
+              </button>
             </div>
           </div>
         </div>
