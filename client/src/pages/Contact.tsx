@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ContactButtons from '../components/ContactButtons';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -60,7 +61,7 @@ const Contact = () => {
           {/* Contact Details */}
           <div>
             <h2 className="font-semibold text-3xl text-primary mb-6">Our Location & Contact Info</h2>
-            <address className="not-italic text-base text-lg text-text mb-4 leading-relaxed space-y-2">
+            <address className="not-italic text-base text-lg text-text mb-6 leading-relaxed space-y-2">
               <p>
                 <strong>Marine Canvas Florida</strong><br />
                 495 Brady Rd Suite J<br />
@@ -68,15 +69,12 @@ const Contact = () => {
                 United States
               </p>
               <p>
-                Phone: <a href="tel:+17272187157" className="text-primary hover:text-brand-nautical-red transition-colors duration-200">(727) 218-7157</a>
-              </p>
-              <p>
                 Email: <a href="mailto:office@marinecanvasflorida.com" className="text-primary hover:text-brand-nautical-red transition-colors duration-200">office@marinecanvasflorida.com</a>
               </p>
-              <p>
-                WhatsApp: <a href="https://wa.me/17272187157?text=Hi%20Marine%20Canvas%20Florida%21%20I%20would%20like%20to%20inquire%20about%20your%20services.&utm_source=website&utm_medium=contact_page&utm_campaign=direct_contact" target="_blank" rel="noopener noreferrer" className="text-green-600 hover:text-green-700 transition-colors duration-200">Chat on WhatsApp</a>
-              </p>
             </address>
+            <div className="mb-8">
+              <ContactButtons />
+            </div>
             <div className="mt-8 w-full rounded-lg shadow-lg overflow-hidden border border-border">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3514.8234567890!2d-82.7341!3d28.0879!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2d3c3c3c3c3c3%3A0x1234567890abcdef!2s495%20Brady%20Rd%20Suite%20J%2C%20Tarpon%20Springs%2C%20FL%2034689!5e0!3m2!1sen!2sus!4v1234567890"
