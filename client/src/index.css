@@ -6,25 +6,25 @@
 
 /* CSS Variables for Dynamic Theming */
 :root {
-  /* Light Theme Defaults */
-  --color-primary: #0B3C5D; /* Ocean Blue */
-  --color-secondary: #C62828; /* Nautical Red */
-  --color-accent: #F2C94C; /* Sail Yellow */
+  /* Light Theme Defaults - True Ocean Blue */
+  --color-primary: #003D7A; /* True Ocean Blue (Deep Marine) */
+  --color-secondary: #D32F2F; /* Nautical Red (deeper) */
+  --color-accent: #FDB913; /* Sail Yellow (brighter) */
   --color-background: #FAFAF7; /* Canvas White */
-  --color-text: #6B7280; /* Rope Gray */
+  --color-text: #2C3E50; /* Deep Charcoal */
   --color-card: #FFFFFF; /* Pure White for cards in light theme */
   --color-card-hover: #F0F0EE; /* Slightly off-white for card hover */
 }
 
 /* Dark theme overrides */
 .dark {
-  --color-primary: #0B3C5D; /* Ocean Blue (same) */
-  --color-secondary: #C62828; /* Nautical Red (same) */
-  --color-accent: #F2C94C; /* Sail Yellow (same) */
-  --color-background: #071A2C; /* Dark Canvas Navy */
-  --color-text: #E6EAF0; /* Soft Off-White */
-  --color-card: #0B1F38; /* Slightly lighter navy for cards in dark theme */
-  --color-card-hover: #1A314A; /* Even lighter navy for card hover */
+  --color-primary: #0052A3; /* True Ocean Blue (lighter for dark mode) */
+  --color-secondary: #FF6B6B; /* Nautical Red (lighter for dark mode) */
+  --color-accent: #FFD700; /* Sail Yellow (brighter for dark mode) */
+  --color-background: #0A1628; /* Dark Canvas Navy */
+  --color-text: #E8F0F7; /* Soft Off-White */
+  --color-card: #0F2847; /* Slightly lighter navy for cards in dark theme */
+  --color-card-hover: #1A3A5C; /* Even lighter navy for card hover */
 }
 
 @theme inline {
@@ -59,58 +59,58 @@
 }
 
 :root {
-  --primary: #0B3C5D;
-  --primary-foreground: #FAFAF7;
-  --chart-1: #0B3C5D;
-  --chart-2: #C62828;
-  --chart-3: #F2C94C;
-  --chart-4: #6B7280;
-  --chart-5: #E6EAF0;
+  --primary: #003D7A;
+  --primary-foreground: #FFFFFF;
+  --chart-1: #003D7A;
+  --chart-2: #D32F2F;
+  --chart-3: #FDB913;
+  --chart-4: #2C3E50;
+  --chart-5: #E8F0F7;
   --radius: 0.5rem;
   --background: #FAFAF7;
-  --foreground: #6B7280;
+  --foreground: #2C3E50;
   --card: #FFFFFF;
-  --card-foreground: #6B7280;
+  --card-foreground: #2C3E50;
   --popover: #FFFFFF;
-  --popover-foreground: #6B7280;
+  --popover-foreground: #2C3E50;
   --secondary: #F0F0EE;
-  --secondary-foreground: #0B3C5D;
-  --muted: #E6EAF0;
-  --muted-foreground: #9CA3AF;
-  --accent: #F2C94C;
-  --accent-foreground: #0B3C5D;
-  --destructive: #C62828;
+  --secondary-foreground: #003D7A;
+  --muted: #E8F0F7;
+  --muted-foreground: #5A6C7D;
+  --accent: #FDB913;
+  --accent-foreground: #003D7A;
+  --destructive: #D32F2F;
   --destructive-foreground: #FFFFFF;
-  --border: #E6EAF0;
-  --input: #E6EAF0;
-  --ring: #0B3C5D;
+  --border: #E0E7F1;
+  --input: #E8F0F7;
+  --ring: #0052A3;
 }
 
 .dark {
-  --primary: #0B3C5D;
-  --primary-foreground: #E6EAF0;
-  --background: #071A2C;
-  --foreground: #E6EAF0;
-  --card: #0B1F38;
-  --card-foreground: #E6EAF0;
-  --popover: #0B1F38;
-  --popover-foreground: #E6EAF0;
-  --secondary: #1A314A;
-  --secondary-foreground: #E6EAF0;
-  --muted: #1A314A;
-  --muted-foreground: #9CA3AF;
-  --accent: #F2C94C;
-  --accent-foreground: #0B3C5D;
-  --destructive: #C62828;
+  --primary: #0052A3;
+  --primary-foreground: #E8F0F7;
+  --background: #0A1628;
+  --foreground: #E8F0F7;
+  --card: #0F2847;
+  --card-foreground: #E8F0F7;
+  --popover: #0F2847;
+  --popover-foreground: #E8F0F7;
+  --secondary: #1A3A5C;
+  --secondary-foreground: #E8F0F7;
+  --muted: #1A3A5C;
+  --muted-foreground: #7A8FA3;
+  --accent: #FFD700;
+  --accent-foreground: #0052A3;
+  --destructive: #FF6B6B;
   --destructive-foreground: #FFFFFF;
-  --border: #1A314A;
-  --input: #1A314A;
-  --ring: #F2C94C;
-  --chart-1: #0B3C5D;
-  --chart-2: #C62828;
-  --chart-3: #F2C94C;
-  --chart-4: #E6EAF0;
-  --chart-5: #9CA3AF;
+  --border: #1A3A5C;
+  --input: #1A3A5C;
+  --ring: #FFD700;
+  --chart-1: #0052A3;
+  --chart-2: #FF6B6B;
+  --chart-3: #FFD700;
+  --chart-4: #E8F0F7;
+  --chart-5: #7A8FA3;
 }
 
 @layer base {

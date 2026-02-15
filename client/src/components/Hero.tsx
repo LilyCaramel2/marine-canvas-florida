@@ -1,45 +1,56 @@
 import React from 'react';
 import { Link } from 'wouter';
+import { ArrowRight } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section className="relative w-full h-screen min-h-[600px] overflow-hidden pt-20">
+    <div className="relative w-full h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-0">
       {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+      <div
+        className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url(https://private-us-east-1.manuscdn.com/sessionFile/kbuCeaZfrgJv7ecTDWFekd/sandbox/96UDgFpgJy05Lzp9RGvltf-img-2_1771113025000_na1fn_aGVyby1zYWlsYm9hdA.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUva2J1Q2VhWmZyZ0p2N2VjVERXRmVrZC9zYW5kYm94Lzk2VURnRnBnSnkwNUx6cDlSR3ZsdGYtaW1nLTJfMTc3MTExMzAyNTAwMF9uYTFmbl9hR1Z5YnkxellXbHNZbTloZEEucG5nP3gtb3NzLXByb2Nlc3M9aW1hZ2UvcmVzaXplLHdfMTkyMCxoXzE5MjAvZm9ybWF0LHdlYnAvcXVhbGl0eSxxXzgwIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzk4NzYxNjAwfX19XX0_&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=RTRxyGnTbbhuJlNXF0ZuSmw2QksC9OqW9r2sToVpwbAR-d-WSCGkrMyDbI-gE9KJrlasLuxrQRQmB97VVsG4R9x5o41LQac~s0rGRGfUBJlu3fj~~bNRc753sf1OrCR1Y2mWiWvdPwn0362p6xSzNJS00iiD4KdMDs3PT5jU6jr~njUq8W2dnwFaBXt4aMqr0ILglQEPgceOsdHWYRKWauepOMDCxDGqShCjKRs5LjhBk2sqx27S79NZ2cVKER-eibmB91P0wgKd97wDxB2AeMX38iIwcNv-szn1BIvmLVunZt5j2OexTjRE3knGDkwh6awWTHzNqAnq2KfnXArLMg__)',
+          backgroundImage: 'url(https://private-us-east-1.manuscdn.com/sessionFile/kbuCeaZfrgJv7ecTDWFekd/sandbox/9KnOyH6C2Uxbyg74CEAyOU-img-1_1771114274000_na1fn_aGVyby1hYm91dA.jpg?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUva2J1Q2VhWmZyZ0p2N2VjVERXRmVrZC9zYW5kYm94LzlLbk95SDZDMlV4YnlnNzRDRUF5T1UtaW1nLTFfMTc3MTExNDI3NDAwMF9uYTFmbl9hR1Z5YnkxaFltOTFkQS5qcGc~eC1vc3MtcHJvY2Vzcz1pbWFnZS9yZXNpemUsd18xOTIwLGhfMTkyMC9mb3JtYXQsd2VicC9xdWFsaXR5LHFfODAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTg3NjE2MDB9fX1dfQ__&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=Jg~7QVoZ19zHxli5d26lvOrGyYE6qOTCzDjWpHY7AxHmwHsEdc5eOSHx5sSlzngY0nwET9X-JhW8GNkOh8vOHZiQMCeOcNAaBQbZ1QnPyytImSCtNhSQj6yNTkd7b0cD0osK26TfHPJtTG3xpozf71bIJQT~nJJ4Cq270jxf4PA6IDcEge9g~al7PBQ17cCbfnf2BgNsDBR94sB5p837EgciIw~24XZpT1dAvXD5Z3mgRChcvytwc~gaoHd8hVX5iOVT1fDRcZ4mFVqInDPNCdlbgZTDwghBDRak3JSrtbhIm8Ke-Pb0j1LFGL3WHISCj6tUtw~A~ihiLYJbZudh-w__)',
         }}
-      >
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/50 to-transparent"></div>
-      </div>
+      />
 
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 h-full flex flex-col justify-center items-start">
-        <div className="max-w-2xl">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
-            Custom Marine Canvas: 
-            <span className="text-secondary block">Unrivaled Quality</span>
-            for Florida's Finest Vessels
-          </h1>
-          
-          <p className="text-lg md:text-xl text-foreground/80 mb-8 leading-relaxed max-w-xl">
-            Protect and enhance your yacht or boat with bespoke canvas solutions, meticulously crafted for the demanding Florida marine environment in Tarpon Springs.
-          </p>
+      {/* Dark Gradient Overlay - Left darker, right lighter */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/10" />
 
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Link to="/contact" className="btn-primary inline-block">
+      {/* Content - Centered */}
+      <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 md:px-12 max-w-4xl mx-auto">
+        {/* Main Heading */}
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
+          Custom Marine Canvas:
+          <br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-100">
+            Unmatched Quality
+          </span>
+          <br />
+          for Florida's Finest Vessels
+        </h1>
+
+        {/* Subheading */}
+        <p className="text-lg md:text-2xl text-gray-100 mb-10 max-w-2xl drop-shadow-md leading-relaxed">
+          Protect and enhance your yacht or boat with bespoke canvas solutions, meticulously crafted for the demanding Florida marine environment in Tarpon Springs.
+        </p>
+
+        {/* CTA Buttons - Better Spacing */}
+        <div className="flex flex-col sm:flex-row gap-6 justify-center w-full">
+          <Link to="/contact">
+            <a className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-xl">
               Request a Free Consultation
-            </Link>
-            
-            <Link to="/services" className="btn-secondary-inverted inline-block">
+              <ArrowRight className="w-5 h-5" />
+            </a>
+          </Link>
+          <Link to="/services">
+            <a className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/20 hover:bg-white/30 text-white font-bold rounded-lg transition-all duration-300 backdrop-blur-sm border border-white/40">
               Explore Our Craftsmanship
-            </Link>
-          </div>
+              <ArrowRight className="w-5 h-5" />
+            </a>
+          </Link>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
