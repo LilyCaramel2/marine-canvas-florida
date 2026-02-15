@@ -42,7 +42,7 @@ All Bimini tops come with our comprehensive warranty covering materials and work
 
 Bimini tops typically range from $2,500 to $8,000+ depending on vessel size and customization options. We provide detailed quotes after assessing your specific needs.
     `,
-    image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=400&fit=crop',
+    image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=400&fit=crop',
     icon: '☀️',
     features: [
       'Premium Sunbrella fabric',
@@ -105,7 +105,7 @@ Our enclosures are designed for minimal maintenance. We provide detailed care in
 
 Boat enclosures typically range from $3,500 to $12,000+ depending on size, type, and customization. Custom quotes available upon consultation.
     `,
-    image: 'https://images.unsplash.com/photo-1567521464027-f127ff144326?w=800&h=400&fit=crop',
+    image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=400&fit=crop',
     icon: '🛡️',
     features: [
       'Crystal clear acrylic panels',
@@ -166,7 +166,7 @@ Boat covers require minimal maintenance. Regular cleaning and proper storage ext
 
 Custom boat covers typically range from $1,500 to $6,000+ depending on vessel size and material selection. Detailed quotes provided after consultation.
     `,
-    image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=400&fit=crop',
+    image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=400&fit=crop',
     icon: '🎯',
     features: [
       'Precision custom fit',
@@ -253,25 +253,25 @@ Marine upholstery projects typically range from $2,000 to $15,000+ depending on 
 
 export const serviceProjects = [
   // Bimini Projects
-  { id: 1, service: 'bimini-tops', name: 'Bimini Project 1', description: 'Custom Bimini top for 45ft luxury yacht', image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=400&fit=crop' },
-  { id: 2, service: 'bimini-tops', name: 'Bimini Project 2', description: 'Extended Bimini with integrated lighting', image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=400&fit=crop' },
-  { id: 3, service: 'bimini-tops', name: 'Bimini Project 3', description: 'Hydraulic Bimini top installation', image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=400&fit=crop' },
-  { id: 4, service: 'bimini-tops', name: 'Bimini Project 4', description: 'Custom color Bimini for sportfish', image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=400&fit=crop' },
-  { id: 5, service: 'bimini-tops', name: 'Bimini Project 5', description: 'Dual-layer Bimini protection system', image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=400&fit=crop' },
+  { id: 1, service: 'bimini-tops', name: 'Bimini Project 1', description: 'Custom Bimini top for 45ft luxury yacht', image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=400&fit=crop' },
+  { id: 2, service: 'bimini-tops', name: 'Bimini Project 2', description: 'Extended Bimini with integrated lighting', image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=400&fit=crop' },
+  { id: 3, service: 'bimini-tops', name: 'Bimini Project 3', description: 'Hydraulic Bimini top installation', image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=400&fit=crop' },
+  { id: 4, service: 'bimini-tops', name: 'Bimini Project 4', description: 'Custom color Bimini for sportfish', image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=400&fit=crop' },
+  { id: 5, service: 'bimini-tops', name: 'Bimini Project 5', description: 'Dual-layer Bimini protection system', image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=400&fit=crop' },
 
   // Enclosure Projects
-  { id: 6, service: 'enclosures', name: 'Enclosure Project 1', description: 'Full cabin enclosure with ventilation', image: 'https://images.unsplash.com/photo-1567521464027-f127ff144326?w=600&h=400&fit=crop' },
-  { id: 7, service: 'enclosures', name: 'Enclosure Project 2', description: 'Bimini-to-enclosure conversion', image: 'https://images.unsplash.com/photo-1567521464027-f127ff144326?w=600&h=400&fit=crop' },
-  { id: 8, service: 'enclosures', name: 'Enclosure Project 3', description: 'Climate-controlled cabin enclosure', image: 'https://images.unsplash.com/photo-1567521464027-f127ff144326?w=600&h=400&fit=crop' },
-  { id: 9, service: 'enclosures', name: 'Enclosure Project 4', description: 'Removable panel enclosure system', image: 'https://images.unsplash.com/photo-1567521464027-f127ff144326?w=600&h=400&fit=crop' },
-  { id: 10, service: 'enclosures', name: 'Enclosure Project 5', description: 'Luxury yacht full enclosure', image: 'https://images.unsplash.com/photo-1567521464027-f127ff144326?w=600&h=400&fit=crop' },
+  { id: 6, service: 'enclosures', name: 'Enclosure Project 1', description: 'Full cabin enclosure with ventilation', image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=400&fit=crop' },
+  { id: 7, service: 'enclosures', name: 'Enclosure Project 2', description: 'Bimini-to-enclosure conversion', image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=400&fit=crop' },
+  { id: 8, service: 'enclosures', name: 'Enclosure Project 3', description: 'Climate-controlled cabin enclosure', image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=400&fit=crop' },
+  { id: 9, service: 'enclosures', name: 'Enclosure Project 4', description: 'Removable panel enclosure system', image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=400&fit=crop' },
+  { id: 10, service: 'enclosures', name: 'Enclosure Project 5', description: 'Luxury yacht full enclosure', image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=400&fit=crop' },
 
   // Boat Cover Projects
-  { id: 11, service: 'boat-covers', name: 'Boat Cover Project 1', description: 'Full custom boat cover for 50ft vessel', image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=400&fit=crop' },
-  { id: 12, service: 'boat-covers', name: 'Boat Cover Project 2', description: 'Mooring cover with drainage system', image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=400&fit=crop' },
-  { id: 13, service: 'boat-covers', name: 'Boat Cover Project 3', description: 'Cabin cruiser protective cover', image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=400&fit=crop' },
-  { id: 14, service: 'boat-covers', name: 'Boat Cover Project 4', description: 'Custom color boat cover design', image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=400&fit=crop' },
-  { id: 15, service: 'boat-covers', name: 'Boat Cover Project 5', description: 'Reinforced cover for harsh conditions', image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=400&fit=crop' },
+  { id: 11, service: 'boat-covers', name: 'Boat Cover Project 1', description: 'Full custom boat cover for 50ft vessel', image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=400&fit=crop' },
+  { id: 12, service: 'boat-covers', name: 'Boat Cover Project 2', description: 'Mooring cover with drainage system', image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=400&fit=crop' },
+  { id: 13, service: 'boat-covers', name: 'Boat Cover Project 3', description: 'Cabin cruiser protective cover', image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=400&fit=crop' },
+  { id: 14, service: 'boat-covers', name: 'Boat Cover Project 4', description: 'Custom color boat cover design', image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=400&fit=crop' },
+  { id: 15, service: 'boat-covers', name: 'Boat Cover Project 5', description: 'Reinforced cover for harsh conditions', image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=400&fit=crop' },
 
   // Upholstery Projects
   { id: 16, service: 'upholstery', name: 'Upholstery Project 1', description: 'Complete interior cushion suite', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop' },

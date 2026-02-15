@@ -27,8 +27,24 @@ const ServiceDetail = () => {
     );
   }
 
+  // Determine background color based on service
+  const getBackgroundColor = () => {
+    switch (service.id) {
+      case 'bimini-tops':
+        return 'bg-blue-50 dark:bg-blue-950/20';
+      case 'enclosures':
+        return 'bg-red-50 dark:bg-red-950/20';
+      case 'boat-covers':
+        return 'bg-yellow-50 dark:bg-yellow-950/20';
+      case 'upholstery':
+        return 'bg-blue-50 dark:bg-blue-950/20';
+      default:
+        return 'bg-background';
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-background pt-24 pb-12">
+    <div className={`min-h-screen ${getBackgroundColor()} pt-24 pb-12`}>
       {/* Hero Section */}
       <div
         className="relative w-full h-96 bg-cover bg-center mb-12"

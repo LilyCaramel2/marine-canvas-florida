@@ -19,6 +19,7 @@ import Gallery from "./pages/Gallery";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import SailingWithUs from "./pages/SailingWithUs";
+import SailingContactForm from "./pages/SailingContactForm";
 import Projects from "./pages/Projects";
 import ProjectDetail from "./pages/ProjectDetail";
 import NotFound from "./pages/NotFound";
@@ -40,6 +41,7 @@ function Router() {
       <Route path="/blog" component={Blog} />
       <Route path="/contact" component={Contact} />
       <Route path="/sailing-with-us" component={SailingWithUs} />
+      <Route path="/sailing-contact" component={SailingContactForm} />
       <Route path="/404" component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
