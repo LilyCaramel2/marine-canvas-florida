@@ -3,8 +3,8 @@
 import { MessageCircle, Phone } from 'lucide-react';
 
 const ContactButtons = () => {
-  const phoneNumber = '+17275551234'; // International format
-  const whatsappNumber = '17275551234'; // WhatsApp format (without +)
+  const phoneNumber = '+17272187157'; // International format
+  const whatsappNumber = '17272187157'; // WhatsApp format (without +)
   const whatsappMessage = 'Hi! I\'m interested in learning more about Marine Canvas Florida services.';
 
   const handleWhatsApp = () => {

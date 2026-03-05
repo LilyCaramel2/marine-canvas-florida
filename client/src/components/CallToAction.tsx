@@ -17,8 +17,8 @@ const CallToAction = () => {
           </Link>
           <div className="text-lg">
             <p className="text-base mb-2 opacity-90">Or Call Us Directly:</p>
-            <a href="tel:+17275551234" className="font-medium text-2xl md:text-3xl text-white hover:text-brand-sail-yellow transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-75">
-              (727) 555-1234
+            <a href="tel:+17272187157" className="font-medium text-2xl md:text-3xl text-white hover:text-brand-sail-yellow transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-75">
+              (727) 218-7157
             </a>
           </div>
         </div>
