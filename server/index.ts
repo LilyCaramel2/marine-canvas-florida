@@ -1,5 +1,7 @@
-import express from "express";
+import express, { NextFunction, Request, Response } from "express";
+import rateLimit from "express-rate-limit";
 import { createServer } from "http";
+import helmet from "helmet";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -10,6 +12,17 @@ async function startServer() {
   const app = express();
   const server = createServer(app);
 
+  // Security headers
+  app.use(helmet());
+
+  // Rate limiting
+  app.use(
+    rateLimit({
+      windowMs: 15 * 60 * 1000, // 15 minutes
+      max: 200,
+    })
+  );
+
   // Serve static files from dist/public in production
   const staticPath =
     process.env.NODE_ENV === "production"
@@ -19,8 +32,24 @@ async function startServer() {
   app.use(express.static(staticPath));
 
   // Handle client-side routing - serve index.html for all routes
-  app.get("*", (_req, res) => {
-    res.sendFile(path.join(staticPath, "index.html"));
+  app.get("*", (_req, res, next) => {
+    res.sendFile(path.join(staticPath, "index.html"), (err) => {
+      if (err) {
+        next(err);
+      }
+    });
+  });
+
+  // 404 handler for non-GET requests to unknown routes
+  app.use((_req: Request, res: Response) => {
+    res.status(404).send("Not found");
+  });
+
+  // Global error handling middleware
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  app.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
+    console.error(err.stack);
+    res.status(500).send("Internal server error");
   });
 
   const port = process.env.PORT || 3000;
