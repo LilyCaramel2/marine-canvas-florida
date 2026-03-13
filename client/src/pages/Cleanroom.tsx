@@ -42,9 +42,9 @@ const Cleanroom = () => {
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
-          className="max-w-4xl mx-auto mb-16"
+          className="max-w-4xl mx-auto mb-16 text-center"
         >
-          <p className="text-xl text-foreground/80 leading-relaxed mb-8">
+          <p className="text-xl text-foreground/80 leading-relaxed">
             Marine Canvas Florida fabricates softwall cleanroom canvas systems for controlled environment applications. Canvas panels are specified to meet ISO 14644-1 through ISO 14644-9 cleanroom classification standards. Materials are selected for low particle generation, chemical resistance and dimensional stability under controlled temperature conditions. Fabrication is conducted under contamination control protocols. Installation is carried out within live cleanroom environments without disrupting operations. Documentation available to support formal contractor bid submissions including material data sheets, fabrication records and compliance references.
           </p>
         </motion.div>
