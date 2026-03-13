@@ -1,3 +1,8 @@
-# Project Context
+Project Name: Marine Canvas Florida
+Framework: Vite + React
+Deployment Platform: Vercel
+Purpose:
+Industrial canvas service website.
 
-This document provides context for the Marine Canvas Florida project, detailing its objectives, target audience, and overarching goals. It serves as a foundation for understanding the significance and scope of this project.
+Current Status:
+In development
