@@ -1,5 +1,1 @@
-{
-  "buildCommand": "pnpm run build",
-  "outputDirectory": "dist/public",
-  "rewrites": [{"source": "/(.*)", "destination": "/index.html"}]
-}
+{"buildCommand":"pnpm run build","outputDirectory":"dist","rewrites":[{"source":"/(.*)","destination":"/index.html"}]}
