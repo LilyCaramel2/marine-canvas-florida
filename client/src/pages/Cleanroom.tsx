@@ -10,9 +10,9 @@ const Cleanroom = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="relative w-full h-80 bg-cover bg-center mb-12"
+        className="relative w-full h-96 bg-cover bg-center mb-12"
         style={{
-          backgroundImage: 'url(https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1200&h=400&fit=crop)',
+          backgroundImage: 'url(https://images.unsplash.com/photo-1576091160550-112173f7f869?w=1200&h=400&fit=crop)',
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-black/40" />
@@ -21,101 +21,67 @@ const Cleanroom = () => {
             initial={{ x: -50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-4xl md:text-5xl font-bold text-white drop-shadow-lg"
+            className="text-5xl md:text-6xl font-bold text-white drop-shadow-lg"
           >
-            Cleanroom Canvas Cooling Protection
+            Cleanroom Canvas Systems
           </motion.h1>
           <motion.p 
             initial={{ x: -50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-lg text-white/90 mt-4 drop-shadow-md max-w-2xl"
+            className="text-xl text-white/90 mt-4 drop-shadow-md max-w-2xl"
           >
-            ISO 14644-1 compliant softwall systems for controlled environments.
+            ISO 14644-compliant softwall canvas fabrication for controlled environments.
           </motion.p>
         </div>
       </motion.div>
 
       <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-3 gap-12">
-          {/* Main Content */}
-          <motion.div 
-            initial={{ y: 30, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            className="lg:col-span-2 space-y-8"
-          >
-            <section className="bg-card rounded-xl p-8 shadow-lg border border-border/50">
-              <h2 className="text-3xl font-bold text-foreground mb-6">Controlled Environment Solutions</h2>
-              <p className="text-lg text-foreground/80 leading-relaxed mb-6">
-                Marine Canvas Florida fabricates softwall cleanroom canvas systems for controlled environment applications. Canvas panels are specified to meet ISO 14644-1 through ISO 14644-9 cleanroom classification standards.
-              </p>
-              <p className="text-lg text-foreground/80 leading-relaxed">
-                Materials are selected for low particle generation, chemical resistance and dimensional stability under controlled temperature conditions. Fabrication is conducted under contamination control protocols.
-              </p>
-            </section>
-
-            <section className="bg-card rounded-xl p-8 shadow-lg border border-border/50">
-              <h3 className="text-2xl font-bold text-foreground mb-6">Implementation & Compliance</h3>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="p-6 border-l-4 border-primary bg-background/50 rounded-r-lg">
-                  <h4 className="font-bold text-lg mb-2 text-primary">Zero-Disruption Install</h4>
-                  <p className="text-foreground/70 text-sm">
-                    Installation is carried out within live cleanroom environments without disrupting ongoing operations.
-                  </p>
-                </div>
-                <div className="p-6 border-l-4 border-primary bg-background/50 rounded-r-lg">
-                  <h4 className="font-bold text-lg mb-2 text-primary">Formal Bid Support</h4>
-                  <p className="text-foreground/70 text-sm">
-                    Documentation available to support formal contractor bid submissions including material data sheets and compliance references.
-                  </p>
-                </div>
-              </div>
-            </section>
-          </motion.div>
-
-          {/* Sidebar / Quick Contact */}
-          <motion.aside 
-            initial={{ x: 30, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            className="space-y-8"
-          >
-            <div className="bg-primary rounded-xl p-8 text-white shadow-xl">
-              <h3 className="text-2xl font-bold mb-4">Request Specs</h3>
-              <p className="opacity-90 mb-6">
-                Get full technical documentation for your cleanroom project.
-              </p>
-              <a 
-                href="mailto:office@marinecanvasflorida.com" 
-                className="block w-full text-center py-4 bg-white text-primary font-bold rounded-lg hover:bg-gray-100 transition-colors shadow-lg"
-              >
-                Contact Specialist
-              </a>
-            </div>
-
-            <div className="bg-card rounded-xl p-8 shadow-lg border border-border/50">
-              <h3 className="text-xl font-bold text-foreground mb-4">Certifications</h3>
-              <ul className="space-y-3">
-                {['ISO 14644-1 to 14644-9', 'Particle Control Protocols', 'Chemical Resistance Specs', 'Dimensional Stability Certs'].map((cert, idx) => (
-                  <li key={idx} className="flex items-center gap-3 text-foreground/70">
-                    <span className="text-primary font-bold">✓</span> {cert}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </motion.aside>
-        </div>
-
-        {/* Navigation Back */}
+        {/* Main Content */}
         <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ y: 30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
-          className="mt-12 text-center"
+          className="max-w-4xl mx-auto mb-16"
         >
-          <Link to="/industrial" className="text-primary font-bold hover:underline inline-flex items-center gap-2">
-            ← Back to Industrial Hub
+          <p className="text-xl text-foreground/80 leading-relaxed mb-8">
+            Marine Canvas Florida fabricates softwall cleanroom canvas systems for controlled environment applications. Canvas panels are specified to meet ISO 14644-1 through ISO 14644-9 cleanroom classification standards. Materials are selected for low particle generation, chemical resistance and dimensional stability under controlled temperature conditions. Fabrication is conducted under contamination control protocols. Installation is carried out within live cleanroom environments without disrupting operations. Documentation available to support formal contractor bid submissions including material data sheets, fabrication records and compliance references.
+          </p>
+        </motion.div>
+
+        {/* Specification Documentation Callout */}
+        <motion.section 
+          initial={{ scale: 0.95, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: true }}
+          className="bg-gradient-to-r from-primary to-secondary rounded-xl p-12 text-center text-white shadow-xl mb-16"
+        >
+          <h2 className="text-3xl font-bold mb-4">Request Specification Documentation</h2>
+          <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto">
+            Get detailed material data sheets, fabrication records, and compliance references for your project.
+          </p>
+          <a 
+            href="mailto:office@marinecanvasflorida.com" 
+            className="inline-flex items-center gap-3 px-10 py-4 bg-white text-primary font-bold rounded-lg hover:bg-gray-100 transition-all shadow-lg hover:shadow-white/20"
+          >
+            office@marinecanvasflorida.com
+          </a>
+        </motion.section>
+
+        {/* Back Link */}
+        <motion.div 
+          initial={{ y: 20, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          className="text-center"
+        >
+          <Link to="/industrial">
+            <motion.div 
+              className="inline-flex items-center gap-2 text-primary font-bold hover:text-primary/80 transition-colors cursor-pointer"
+              whileHover={{ x: -4 }}
+            >
+              <span>←</span> Back to Industrial Solutions
+            </motion.div>
           </Link>
         </motion.div>
       </div>
