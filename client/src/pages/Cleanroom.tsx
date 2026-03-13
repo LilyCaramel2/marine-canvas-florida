@@ -114,10 +114,8 @@ const Cleanroom = () => {
           viewport={{ once: true }}
           className="mt-12 text-center"
         >
-          <Link to="/industrial">
-            <a className="text-primary font-bold hover:underline inline-flex items-center gap-2">
-              ← Back to Industrial Hub
-            </a>
+          <Link to="/industrial" className="text-primary font-bold hover:underline inline-flex items-center gap-2">
+            ← Back to Industrial Hub
           </Link>
         </motion.div>
       </div>

@@ -99,7 +99,7 @@ const Industrial = () => {
         >
           {industrialServices.map((service, idx) => (
             <Link key={idx} to={service.href}>
-              <motion.a 
+              <motion.div
                 variants={itemVariants}
                 className="group bg-card rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all cursor-pointer border border-border/50"
               >
@@ -117,7 +117,7 @@ const Industrial = () => {
                     View Solution <span>→</span>
                   </div>
                 </div>
-              </motion.a>
+              </motion.div>
             </Link>
           ))}
         </motion.div>
