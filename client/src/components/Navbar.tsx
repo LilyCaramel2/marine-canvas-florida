@@ -28,6 +28,7 @@ const Navbar = () => {
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
     { href: '/services', label: 'Services' },
+    { href: '/industrial', label: 'Industrial' },
     { href: '/gallery', label: 'Gallery' },
     { href: '/sailing-with-us', label: 'Sailing With Us' },
     { href: '/blog', label: 'Blog' },
