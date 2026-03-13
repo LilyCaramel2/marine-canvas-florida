@@ -18,6 +18,7 @@ import ServiceUpholstery from "./pages/ServiceUpholstery";
 import Gallery from "./pages/Gallery";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
+import Industrial from "./pages/Industrial";
 import SailingWithUs from "./pages/SailingWithUs";
 import SailingContactForm from "./pages/SailingContactForm";
 import Projects from "./pages/Projects";
@@ -46,6 +47,7 @@ function Router() {
       <Route path="/projects/:id" component={ProjectDetail} />
       <Route path="/blog" component={Blog} />
       <Route path="/contact" component={Contact} />
+      <Route path="/industrial" component={Industrial} />
       <Route path="/sailing-with-us" component={SailingWithUs} />
       <Route path="/sailing-contact" component={SailingContactForm} />
       <Route path="/privacy" component={Privacy} />
