@@ -1,26 +1,26 @@
-import { Link } from 'wouter';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
-  { href: '/services', label: 'Services' },
-  { href: '/industrial', label: 'Industrial' },
-  { href: '/gallery', label: 'Gallery' },
-  { href: '/sailing-with-us', label: 'Sailing With Us' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/contact', label: 'Contact' },
-];
+const Navbar = () => {
+  const navLinks = [
+    { href: '/', label: 'Home' },
+    { href: '/services', label: 'Services' },
+    { href: '/industrial', label: 'Industrial' },
+    { href: '/gallery', label: 'Gallery' },
+    { href: '/contact', label: 'Contact' },
+  ];
 
-export default function Navbar() {
   return (
     <nav>
       <ul>
-        {navLinks.map(link => (
+        {navLinks.map((link) => (
           <li key={link.label}>
-            <Link href={link.href}>{link.label}</Link>
+            <Link to={link.href}>{link.label}</Link>
           </li>
         ))}
       </ul>
     </nav>
   );
-}
+};
+
+export default Navbar;
