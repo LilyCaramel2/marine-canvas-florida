@@ -24,10 +24,16 @@ const Industrial = () => {
 
   const industrialServices = [
     {
+      title: 'Clean Room Solutions',
+      description: 'Comprehensive clean room systems including curtains, equipment covers, and containment barriers for controlled environments.',
+      href: '/industrial/clean-room',
+      icon: '🔬'
+    },
+    {
       title: 'Cleanroom Canvas Cooling Protection',
       description: 'Softwall cleanroom canvas systems specified to ISO 14644 standards for pharmaceutical and aerospace facilities.',
       href: '/industrial/cleanroom',
-      icon: '🔬'
+      icon: '❄️'
     },
     {
       title: 'Large Facility and Campus Projects',
@@ -95,7 +101,7 @@ const Industrial = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid md:grid-cols-3 gap-8 mb-16"
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16"
         >
           {industrialServices.map((service, idx) => (
             <Link key={idx} to={service.href}>
