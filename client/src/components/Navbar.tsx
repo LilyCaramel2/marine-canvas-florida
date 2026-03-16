@@ -1,7 +1,26 @@
-const navLinks = [ 
-  { href: '/services', label: 'Services' },
-  { href: '/industrial', label: 'Industrial' },
-  { href: '/gallery', label: 'Gallery' },
-];
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-export default navLinks;
+const Navbar = () => {
+    const navLinks = [
+        { href: '/', label: 'Home' },
+        { href: '/services', label: 'Services' },
+        { href: '/industrial', label: 'Industrial' },
+        { href: '/gallery', label: 'Gallery' },
+        { href: '/contact', label: 'Contact' }
+    ];
+
+    return (
+        <nav>
+            <ul>
+                {navLinks.map(link => (
+                    <li key={link.href}>
+                        <Link to={link.href}>{link.label}</Link>
+                    </li>
+                ))}
+            </ul>
+        </nav>
+    );
+};
+
+export default Navbar;
