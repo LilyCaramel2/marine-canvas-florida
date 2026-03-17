@@ -1,14 +1,18 @@
 import { Router, Request, Response } from 'express';
 import multer from 'multer';
 import path from 'path';
+import fs from 'fs';
 import nodemailer from 'nodemailer';
+import { saveSubmission, uploadFile } from '../lib/supabase';
 
 const router = Router();
 
 // ── Multer: accept all file types, 20MB per file, max 10 files ───────────────
 const storage = multer.diskStorage({
   destination: (_req, _file, cb) => {
-    cb(null, path.join(process.cwd(), 'server', 'uploads'));
+    const dir = path.join(process.cwd(), 'server', 'uploads');
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+    cb(null, dir);
   },
   filename: (_req, file, cb) => {
     const unique = `${Date.now()}-${Math.round(Math.random() * 1e9)}`;
@@ -36,9 +40,13 @@ function row(label: string, value: string | undefined): string {
   return `<tr><td style="padding:8px 0;font-weight:bold;width:180px;color:#555;">${label}</td><td style="padding:8px 0;">${value || 'Not provided'}</td></tr>`;
 }
 
-function fileListHtml(files: Express.Multer.File[]): string {
+function fileListHtml(files: Express.Multer.File[], urls?: string[]): string {
   if (!files || files.length === 0) return '';
-  const items = files.map(f => `<li>${f.originalname} (${(f.size / 1024).toFixed(1)} KB)</li>`).join('');
+  const items = files.map((f, i) => {
+    const url = urls?.[i];
+    const link = url ? ` — <a href="${url}" style="color:#1B3A5C;">View file</a>` : '';
+    return `<li>${f.originalname} (${(f.size / 1024).toFixed(1)} KB)${link}</li>`;
+  }).join('');
   return `<p style="font-weight:bold;color:#555;margin:16px 0 8px;">Attached Files</p><ul>${items}</ul>`;
 }
 
@@ -59,6 +67,26 @@ function wrap(title: string, subtitle: string, body: string): string {
   </div>`;
 }
 
+/**
+ * Upload all multer files to Supabase Storage under a submission folder.
+ * Returns an array of public URLs (null entries where upload failed).
+ */
+async function uploadFilesToSupabase(
+  submissionId: string,
+  files: Express.Multer.File[]
+): Promise<(string | null)[]> {
+  return Promise.all(
+    files.map(async (f) => {
+      try {
+        const buffer = fs.readFileSync(f.path);
+        return await uploadFile(submissionId, f.originalname, buffer, f.mimetype);
+      } catch {
+        return null;
+      }
+    })
+  );
+}
+
 // ── POST /api/contact  (Marine Canvas form) ──────────────────────────────────
 router.post('/contact', upload.array('files'), async (req: Request, res: Response) => {
   const { name, email, phone, inquiryType, boatType, boatLength, serviceNeeded, location, message } = req.body;
@@ -72,17 +100,42 @@ router.post('/contact', upload.array('files'), async (req: Request, res: Respons
 
   const servicesText = Array.isArray(serviceNeeded) ? serviceNeeded.join(', ') : serviceNeeded || 'Not specified';
 
+  // ── Supabase: save submission + upload files ──
+  const submissionId = await saveSubmission({
+    form_type: 'marine',
+    name: name.trim(),
+    email: email.trim(),
+    phone: phone?.trim(),
+    subject: inquiryType || 'Marine Canvas',
+    message: message?.trim(),
+    raw_fields: { inquiryType, boatType, boatLength, serviceNeeded, location },
+    file_names: files.map(f => f.originalname),
+    ip_address: req.ip,
+  });
+
+  const fileUrls = submissionId ? await uploadFilesToSupabase(submissionId, files) : [];
+
+  // Update the record with file URLs if we have them
+  if (submissionId && fileUrls.some(u => u !== null)) {
+    const { supabase } = await import('../lib/supabase');
+    await supabase
+      .from('form_submissions')
+      .update({ file_urls: fileUrls.filter(Boolean) as string[] })
+      .eq('id', submissionId);
+  }
+
   const notificationBody = `
     <table style="width:100%;border-collapse:collapse;font-size:15px;">
       ${row('Name', name)}${row('Email', `<a href="mailto:${email}" style="color:#1B3A5C;">${email}</a>`)}
       ${row('Phone', phone)}${row('Inquiry Type', inquiryType || 'Marine Canvas')}
       ${row('Boat Type', boatType)}${row('Boat Length', boatLength)}
       ${row('Services Needed', servicesText)}${row('Location', location)}
+      ${submissionId ? row('Supabase ID', submissionId) : ''}
     </table>
     <hr style="border:none;border-top:1px solid #e0e0e0;margin:16px 0;" />
     <p style="font-weight:bold;color:#555;margin-bottom:8px;">Message</p>
     <p style="background:#fff;border:1px solid #e0e0e0;border-radius:4px;padding:12px;line-height:1.6;margin:0;">${(message || '').replace(/\n/g, '<br />')}</p>
-    ${fileListHtml(files)}`;
+    ${fileListHtml(files, fileUrls as string[])}`;
 
   try {
     const t = createTransporter();
@@ -101,7 +154,7 @@ router.post('/contact', upload.array('files'), async (req: Request, res: Respons
     });
     return res.status(200).json({ success: true, message: 'Your inquiry has been sent. We will be in touch shortly.' });
   } catch (err) {
-    console.error('[contact] Email error:', err);
+    console.error('[contact] Email error:', (err as Error).message);
     return res.status(500).json({ success: false, errors: ['Failed to send your message. Please call us at (727) 218-7157.'] });
   }
 });
@@ -117,6 +170,29 @@ router.post('/sailing-contact', upload.array('files'), async (req: Request, res:
   if (!tripDescription?.trim()) errors.push('Please describe your sailing goals.');
   if (errors.length) return res.status(400).json({ success: false, errors });
 
+  // ── Supabase ──
+  const submissionId = await saveSubmission({
+    form_type: 'sailing',
+    name: name.trim(),
+    email: email.trim(),
+    phone: phone?.trim(),
+    subject: tripType || 'Sailing Enquiry',
+    message: tripDescription?.trim(),
+    raw_fields: { sailingLevel, tripDuration, tripType, boatPreference, certificationGoal, seaMilesNeeded, preferredDates },
+    file_names: files.map(f => f.originalname),
+    ip_address: req.ip,
+  });
+
+  const fileUrls = submissionId ? await uploadFilesToSupabase(submissionId, files) : [];
+
+  if (submissionId && fileUrls.some(u => u !== null)) {
+    const { supabase } = await import('../lib/supabase');
+    await supabase
+      .from('form_submissions')
+      .update({ file_urls: fileUrls.filter(Boolean) as string[] })
+      .eq('id', submissionId);
+  }
+
   const notificationBody = `
     <table style="width:100%;border-collapse:collapse;font-size:15px;">
       ${row('Name', name)}${row('Email', `<a href="mailto:${email}" style="color:#1B3A5C;">${email}</a>`)}
@@ -124,11 +200,12 @@ router.post('/sailing-contact', upload.array('files'), async (req: Request, res:
       ${row('Trip Duration', tripDuration)}${row('Trip Type', tripType)}
       ${row('Boat Preference', boatPreference)}${row('Certification Goal', certificationGoal)}
       ${row('Sea Miles Needed', seaMilesNeeded)}${row('Preferred Dates', preferredDates)}
+      ${submissionId ? row('Supabase ID', submissionId) : ''}
     </table>
     <hr style="border:none;border-top:1px solid #e0e0e0;margin:16px 0;" />
     <p style="font-weight:bold;color:#555;margin-bottom:8px;">Trip Description</p>
     <p style="background:#fff;border:1px solid #e0e0e0;border-radius:4px;padding:12px;line-height:1.6;margin:0;">${(tripDescription || '').replace(/\n/g, '<br />')}</p>
-    ${fileListHtml(files)}`;
+    ${fileListHtml(files, fileUrls as string[])}`;
 
   try {
     const t = createTransporter();
@@ -147,7 +224,7 @@ router.post('/sailing-contact', upload.array('files'), async (req: Request, res:
     });
     return res.status(200).json({ success: true, message: 'Your sailing enquiry has been sent. We will be in touch shortly.' });
   } catch (err) {
-    console.error('[sailing-contact] Email error:', err);
+    console.error('[sailing-contact] Email error:', (err as Error).message);
     return res.status(500).json({ success: false, errors: ['Failed to send your enquiry. Please call us at (727) 218-7157.'] });
   }
 });
@@ -165,6 +242,29 @@ router.post('/industrial-contact', upload.array('files'), async (req: Request, r
 
   const complianceText = Array.isArray(complianceRequirements) ? complianceRequirements.join(', ') : complianceRequirements || 'Not specified';
 
+  // ── Supabase ──
+  const submissionId = await saveSubmission({
+    form_type: 'industrial',
+    name: name.trim(),
+    email: email.trim(),
+    phone: phone?.trim(),
+    subject: facilityType || 'Industrial Enquiry',
+    message: projectDescription?.trim(),
+    raw_fields: { company, facilityType, facilitySize, complianceRequirements, timeline, budget, location },
+    file_names: files.map(f => f.originalname),
+    ip_address: req.ip,
+  });
+
+  const fileUrls = submissionId ? await uploadFilesToSupabase(submissionId, files) : [];
+
+  if (submissionId && fileUrls.some(u => u !== null)) {
+    const { supabase } = await import('../lib/supabase');
+    await supabase
+      .from('form_submissions')
+      .update({ file_urls: fileUrls.filter(Boolean) as string[] })
+      .eq('id', submissionId);
+  }
+
   const notificationBody = `
     <table style="width:100%;border-collapse:collapse;font-size:15px;">
       ${row('Name', name)}${row('Company', company)}
@@ -172,11 +272,12 @@ router.post('/industrial-contact', upload.array('files'), async (req: Request, r
       ${row('Location', location)}${row('Facility Type', facilityType)}
       ${row('Facility Size', facilitySize)}${row('Compliance Requirements', complianceText)}
       ${row('Project Timeline', timeline)}${row('Budget Range', budget)}
+      ${submissionId ? row('Supabase ID', submissionId) : ''}
     </table>
     <hr style="border:none;border-top:1px solid #e0e0e0;margin:16px 0;" />
     <p style="font-weight:bold;color:#555;margin-bottom:8px;">Project Description</p>
     <p style="background:#fff;border:1px solid #e0e0e0;border-radius:4px;padding:12px;line-height:1.6;margin:0;">${(projectDescription || '').replace(/\n/g, '<br />')}</p>
-    ${fileListHtml(files)}`;
+    ${fileListHtml(files, fileUrls as string[])}`;
 
   try {
     const t = createTransporter();
@@ -195,7 +296,7 @@ router.post('/industrial-contact', upload.array('files'), async (req: Request, r
     });
     return res.status(200).json({ success: true, message: 'Your industrial enquiry has been received. We will contact you within 48 hours.' });
   } catch (err) {
-    console.error('[industrial-contact] Email error:', err);
+    console.error('[industrial-contact] Email error:', (err as Error).message);
     return res.status(500).json({ success: false, errors: ['Failed to send your enquiry. Please call us at (727) 218-7157.'] });
   }
 });
