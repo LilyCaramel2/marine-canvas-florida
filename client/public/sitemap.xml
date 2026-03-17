@@ -163,4 +163,24 @@
     <priority>0.3</priority>
   </url>
 
+
+  <!-- Blog Posts -->
+  <url>
+    <loc>https://marinecanvasflorida.com/blog/sailing-atlantic-rebuilt-yacht-6800-miles</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://marinecanvasflorida.com/blog/yachts-to-cleanrooms-marine-precision-industrial</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://marinecanvasflorida.com/blog/iso-14644-cleanroom-standards-florida</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
 </urlset>

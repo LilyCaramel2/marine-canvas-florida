@@ -17,6 +17,7 @@ import ServiceBoatCovers from "./pages/ServiceBoatCovers";
 import ServiceUpholstery from "./pages/ServiceUpholstery";
 import Gallery from "./pages/Gallery";
 import Blog from "./pages/Blog";
+import BlogPostDetail from "./pages/BlogPostDetail";
 import Contact from "./pages/Contact";
 import Industrial from "./pages/Industrial";
 import Cleanroom from "./pages/Cleanroom";
@@ -55,6 +56,7 @@ function Router() {
       <Route path="/projects" component={Projects} />
       <Route path="/projects/:id" component={ProjectDetail} />
       <Route path="/blog" component={Blog} />
+      <Route path="/blog/:slug" component={BlogPostDetail} />
       <Route path="/contact" component={Contact} />
       <Route path="/industrial" component={Industrial} />
       <Route path="/industrial/clean-room" component={Cleanroom} />

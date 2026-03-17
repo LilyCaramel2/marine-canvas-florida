@@ -231,7 +231,7 @@ Your boat is a significant investment. Proper marine canvas protection ensures t
     category: 'Boat Protection',
     image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=400&fit=crop',
     keywords: ['boat protection Florida', 'marine canvas', 'UV protection', 'hurricane protection'],
-    metaDescription: 'Learn why quality marine canvas is essential for protecting your boat in Florida\'s harsh marine environment.'
+    metaDescription: 'Learn why quality marine canvas is essential for protecting your boat in Florida\&#39;s harsh marine environment.'
   },
   {
     id: '5',
@@ -396,5 +396,125 @@ At Marine Canvas Florida, we specialize in marine upholstery restoration that co
     image: 'https://images.unsplash.com/photo-1511884642898-4c92249e20b6?w=800&h=400&fit=crop',
     keywords: ['marine upholstery', 'boat interior', 'upholstery restoration', 'Sunbrella upholstery'],
     metaDescription: 'Professional marine upholstery restoration for boats. Transform your interior with quality materials and expert craftsmanship.'
+  },
+  {
+    id: '7',
+    title: 'Sailing the Atlantic: One Couple, One Rebuilt Yacht, 6,800 Nautical Miles',
+    slug: 'sailing-atlantic-rebuilt-yacht-6800-miles',
+    excerpt: 'In 2023, Peck and Ella of Marine Canvas Florida set sail from Tarpon Springs aboard Envera — a 1974 Irwin 37 they had rebuilt from a sunken hull. This is the story of their 26-day transatlantic crossing.',
+    content: `
+## A Dream Forged in the Workshop
+
+Before Marine Canvas Florida became the industrial fabrication authority it is today, its founders were sailors. Peck and Ella had spent years working with canvas, rigging, and marine materials — but their greatest project was not a client commission. It was a 1974 Irwin 37 named Envera, retrieved from the bottom of a Florida marina and rebuilt from an empty hull.
+
+The rebuild took three years. Fibreglass, electrical systems, Sta-Lok rigging, boom, mast, solar batteries, bimini, dodger, cockpit cushions, V-berth mattress — every component was fabricated, installed, or sourced by Peck and Ella themselves. The process was documented on their YouTube channel, Sailing Envera.
+
+## The Departure
+
+On May 7, 2023, Envera left Tarpon Springs without a shakedown cruise. There was no autopilot — Peck had chosen an Aries windvane instead, which they nicknamed Srba. For the first 1,200 nautical miles, they steered by hand. Three days out, near the Florida Keys, a storm with 70-knot winds hit them. That night, they genuinely feared for their lives.
+
+They pushed on. Marathon, Florida. Boot Key Harbor. A month of recovery, repairs, and waiting for solar equipment. Then, on June 11, they left again.
+
+## The Atlantic Crossing
+
+The route took them from Florida up the US East Coast, across the North Atlantic to the Azores, then to Portugal, Spain, through the Strait of Gibraltar, along the Spanish and Italian coasts, past Sicily, through the Straits of Messina, and east across the Adriatic to Montenegro — 6,800 nautical miles in total.
+
+The canvas they had fabricated themselves — Sunbrella bimini, Isinglass dodger, hand-sewn sail covers — weathered every storm. Their rule: reef as soon as the thought arises. The material knowledge that kept them safe at sea is the same knowledge that now goes into every industrial canvas project Marine Canvas Florida undertakes.
+
+## What This Means for Your Project
+
+Peck does not fabricate to a catalogue. He fabricates to the conditions the material will face. Whether that is a 70-knot Atlantic squall or a Florida hurricane, the discipline is identical: measure precisely, select the right material, fabricate without shortcuts, and install with the knowledge that someone depends on your work.
+
+That is the standard Marine Canvas Florida brings to every cleanroom enclosure, data centre containment system, and equipment cover it produces.
+    `,
+    author: 'Lily Godden — Caramel Digital Studio',
+    date: '2026-03-01',
+    category: 'Sailing',
+    image: 'https://images.unsplash.com/photo-1500514966906-fe245eea9344?w=800&h=400&fit=crop',
+    keywords: ['transatlantic sailing', 'Adriatic Lux', 'Tarpon Springs sailing', 'Envera yacht', 'marine canvas fabrication'],
+    metaDescription: 'The story of Peck and Ella&#39;s 6,800nm transatlantic crossing aboard Envera — a 1974 Irwin 37 rebuilt from a sunken hull. Marine Canvas Florida founders.'
+  },
+  {
+    id: '8',
+    title: 'From Yachts to Cleanrooms: Why Marine Precision Matters in Industrial Fabrication',
+    slug: 'yachts-to-cleanrooms-marine-precision-industrial',
+    excerpt: 'The skills that keep a yacht watertight in a 70-knot storm are the same skills that keep a pharmaceutical cleanroom contamination-free. Here is why marine fabrication expertise is the unexpected advantage in industrial canvas work.',
+    content: `
+## An Unlikely Connection
+
+At first glance, a luxury yacht bimini and an ISO Class 5 cleanroom enclosure have nothing in common. One is designed for sun and spray. The other is designed for sterile pharmaceutical manufacturing. Yet the fabrication disciplines that govern both are remarkably similar — and the craftsmen who excel at one tend to excel at the other.
+
+Marine Canvas Florida was founded by Peck, a master fabricator with over 20 years of experience working with technical fabrics on vessels ranging from 30ft fishing boats to 120ft superyachts. When the industrial pivot came, the transition was not a leap. It was a natural extension of the same discipline.
+
+## The Shared Disciplines
+
+Dimensional Precision. A bimini that does not fit perfectly will leak at the seams. A cleanroom panel that does not seal perfectly will allow particulate contamination. In both cases, the tolerance for error is near zero. Peck uses digital scanning and CAD design for both marine and industrial projects — the same tools, the same standards.
+
+Material Selection. Marine fabricators work with a wider range of technical fabrics than almost any other trade. Sunbrella, WeatherMax, Strataglass, Tempotest, Serge Ferrari — each has specific properties for specific conditions. Industrial cleanroom work requires the same material literacy: anti-static PVC, ESD-safe films, fire-retardant coated fabrics. The vocabulary changes. The discipline does not.
+
+Rigging and Tensioning. A poorly tensioned sail cover flaps, chafes, and fails. A poorly tensioned cleanroom panel bows, gaps, and compromises ISO classification. Peck's background in Sta-Lok rigging and structural tensioning translates directly to the precise tensioning required in modular cleanroom framing.
+
+Environmental Stress Testing. Marine canvas is tested by the harshest conditions on earth. Peck and Ella's transatlantic crossing put every seam, every zip, every stitch through 6,800 nautical miles of Atlantic weather. Industrial canvas does not face those conditions — but it is fabricated by someone who has.
+
+## The Industrial Advantage
+
+Florida's industrial canvas market is served largely by national suppliers shipping generic kits from warehouses. There is no on-site measurement, no material consultation, no fabricator who will personally install and tension the system to your facility's exact dimensions.
+
+Marine Canvas Florida offers something different: a master craftsman who measures on-site, fabricates to exact tolerances, and installs with the same care he would give a client's 120ft superyacht. The result is a cleanroom enclosure, data centre containment system, or equipment cover that fits perfectly, performs to specification, and lasts.
+
+That is the marine precision advantage.
+    `,
+    author: 'Lily Godden — Caramel Digital Studio',
+    date: '2026-03-10',
+    category: 'Industrial',
+    image: 'https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?w=800&h=400&fit=crop',
+    keywords: ['marine fabrication industrial', 'cleanroom canvas Florida', 'yacht precision industrial', 'Adriatic Lux industrial'],
+    metaDescription: 'How marine fabrication expertise translates to industrial cleanroom and data centre canvas work. Marine Canvas Florida unique advantage in Florida industrial market.'
+  },
+  {
+    id: '9',
+    title: 'ISO 14644-1 Cleanroom Standards in Florida: What Facility Managers Need to Know',
+    slug: 'iso-14644-cleanroom-standards-florida',
+    excerpt: 'ISO 14644-1 defines the cleanliness classification of cleanrooms from Class 1 to Class 9. For Florida pharmaceutical, biotech, and semiconductor facilities, understanding these standards is the first step to specifying the right enclosure.',
+    content: `
+## What Is ISO 14644-1?
+
+ISO 14644-1 is the international standard that defines the classification of air cleanliness in cleanrooms and associated controlled environments. It replaced the older US Federal Standard 209E in 2001 and is now the globally recognised benchmark for cleanroom design, construction, and validation.
+
+The standard classifies cleanrooms from ISO Class 1 (the most stringent, with fewer than 10 particles per cubic metre at 0.1 micrometres) to ISO Class 9 (equivalent to a standard room). Most pharmaceutical, biotech, and semiconductor applications require ISO Class 5 through ISO Class 8.
+
+## Florida Cleanroom Market
+
+Florida has a significant and growing cleanroom requirement across several sectors.
+
+Pharmaceutical and Biotech. The Tampa Bay area is home to a growing cluster of pharmaceutical manufacturers and contract research organisations. FDA 21 CFR Part 211 requires that drug manufacturing areas maintain defined air quality standards — typically ISO Class 7 or ISO Class 8 for non-sterile manufacturing, and ISO Class 5 for aseptic filling.
+
+Semiconductor and Electronics. Florida's defence and aerospace sector — centred around Orlando and the Space Coast — requires cleanroom environments for precision electronics assembly, optical systems, and sensor manufacturing. These applications typically require ISO Class 5 through ISO Class 7.
+
+Medical Devices. Florida is one of the largest medical device manufacturing states in the US. ISO 13485 quality management requirements drive cleanroom needs across the state, particularly in the Tampa Bay and Miami corridors.
+
+## Softwall vs Hardwall Cleanrooms
+
+For most Florida industrial applications, softwall cleanrooms offer the best balance of performance, cost, and flexibility.
+
+Softwall cleanrooms use flexible PVC or anti-static film panels on a modular aluminium frame. They can be deployed in days, reconfigured as production layouts change, and relocated without structural modification to the host facility. They are ISO Class 5 through Class 9 capable when paired with appropriate HEPA fan-filter units.
+
+Hardwall cleanrooms use rigid panels and are appropriate for ISO Class 1 through Class 5 applications requiring the highest levels of contamination control. They require structural modifications and longer lead times.
+
+For most pharmaceutical, biotech, and electronics applications in Florida, a well-fabricated softwall cleanroom is the appropriate and cost-effective solution.
+
+## What to Specify
+
+When specifying a cleanroom enclosure for a Florida facility, the key parameters are: ISO Classification Target, Footprint and Ceiling Height, Pressure Differential, Material Requirements, Access Configuration, and Compliance Requirements.
+
+Marine Canvas Florida provides on-site consultation, dimensional survey, and fabrication drawings for all cleanroom projects. Every enclosure is built to the exact specifications of your facility and validated to your target ISO classification.
+    `,
+    author: 'Lily Godden — Caramel Digital Studio',
+    date: '2026-03-15',
+    category: 'Industrial',
+    image: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&h=400&fit=crop',
+    keywords: ['ISO 14644 Florida', 'cleanroom standards Florida', 'softwall cleanroom Tampa', 'pharmaceutical cleanroom Florida', 'ISO Class 5 cleanroom'],
+    metaDescription: 'ISO 14644-1 cleanroom classification explained for Florida pharmaceutical, biotech, and semiconductor facility managers. Softwall vs hardwall, what to specify.'
   }
 ];
+
