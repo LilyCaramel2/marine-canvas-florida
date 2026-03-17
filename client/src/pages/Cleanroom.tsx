@@ -1,10 +1,17 @@
 import React from 'react';
+import SEOHead from '../components/SEOHead';
 import { Link } from 'wouter';
 import { motion } from 'framer-motion';
 
 const Cleanroom = () => {
   return (
     <div className="min-h-screen bg-background pt-24 pb-12">
+      <SEOHead
+        title="Softwall Cleanroom Solutions Tampa & Florida | ISO 14644 Compliant Canvas Systems"
+        description="Custom softwall cleanroom panels and modular enclosure systems for pharmaceutical, semiconductor, and aerospace facilities across Tampa, Orlando, and Florida. ISO 14644-1 Class 1–8 compliant."
+        canonical="https://marinecanvasflorida.com/industrial/clean-room"
+        ogUrl="https://marinecanvasflorida.com/industrial/clean-room"
+      />
       {/* Hero Section */}
       <motion.div 
         initial={{ opacity: 0 }}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SEOHead from '../components/SEOHead';
 import { Link } from 'wouter';
 
 const Gallery = () => {
@@ -13,7 +14,14 @@ const Gallery = () => {
   const filteredImages = filter === 'All' ? placeholderImages : placeholderImages.filter(img => img.category === filter);
 
   return (
-    <section className="py-24 bg-background text-text transition-colors duration-300 mt-[72px] md:mt-[80px]">
+    <>
+      <SEOHead
+        title="Marine Canvas Gallery | Bimini Tops, Enclosures & Industrial Projects — Florida"
+        description="Browse completed marine canvas and industrial fabrication projects by Marine Canvas Florida. Bimini tops, boat enclosures, cleanroom systems, and equipment covers across Tampa Bay and Florida."
+        canonical="https://marinecanvasflorida.com/gallery"
+        ogUrl="https://marinecanvasflorida.com/gallery"
+      />
+      <section className="py-24 bg-background text-text transition-colors duration-300 mt-[72px] md:mt-[80px]">
       <div className="container mx-auto px-6 max-w-7xl">
         <h1 className="font-semibold text-4xl md:text-5xl lg:text-6xl text-center text-primary mb-12 leading-tight">
           Our Work: A Gallery of Marine Canvas Excellence
@@ -64,6 +72,7 @@ const Gallery = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

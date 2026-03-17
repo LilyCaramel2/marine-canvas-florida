@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SEOHead from '../components/SEOHead';
 import { Link } from 'wouter';
 import { Calendar, User, Tag } from 'lucide-react';
 import { blogPosts } from '@/data/blogPosts';
@@ -13,7 +14,14 @@ const Blog = () => {
     : blogPosts;
 
   return (
-    <div className="min-h-screen bg-background pt-24 pb-12">
+    <>
+      <SEOHead
+        title="Marine Canvas Florida Blog | Canvas Care, Marine Tips & Industry Insights"
+        description="Expert articles on marine canvas maintenance, cleanroom fabrication, and boat care from Marine Canvas Florida. Serving Tarpon Springs, Tampa Bay, and the Florida Gulf Coast."
+        canonical="https://marinecanvasflorida.com/blog"
+        ogUrl="https://marinecanvasflorida.com/blog"
+      />
+      <div className="min-h-screen bg-background pt-24 pb-12">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
@@ -145,7 +153,9 @@ const Blog = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
+
 
 export default Blog;

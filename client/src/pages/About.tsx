@@ -1,9 +1,17 @@
 import React from 'react';
+import SEOHead from '../components/SEOHead';
 import { Award, Users, Zap, Heart } from 'lucide-react';
 import { Link } from 'wouter';
 
 const About = () => {
   return (
+    <>
+      <SEOHead
+      title="About Marine Canvas Florida | Master Fabricator Peck — Tarpon Springs"
+      description="Meet Peck, master canvas fabricator with decades of experience in superyacht rigging and industrial fabrication. Marine Canvas Florida serves Tarpon Springs, Tampa Bay, and Florida's Gulf Coast."
+      canonical="https://marinecanvasflorida.com/about"
+      ogUrl="https://marinecanvasflorida.com/about"
+    />
     <div className="min-h-screen bg-background pt-24 pb-12">
       {/* Hero Section */}
       <div
@@ -140,6 +148,7 @@ const About = () => {
         </section>
       </div>
     </div>
+    </>
   );
 };
 

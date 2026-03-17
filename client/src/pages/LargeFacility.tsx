@@ -1,9 +1,17 @@
 import React from 'react';
+import SEOHead from '../components/SEOHead';
 import { Link } from 'wouter';
 import { motion } from 'framer-motion';
 
 const LargeFacility = () => {
   return (
+    <>
+      <SEOHead
+      title="Cleanroom Equipment Covers Florida | Precision Fabrication for Sensitive Machinery"
+      description="Custom-fabricated equipment covers for cleanroom machinery, CNC equipment, and sensitive instrumentation. ESD-safe fabric options. Serving Tampa, Miami, Jacksonville, and statewide facilities."
+      canonical="https://marinecanvasflorida.com/industrial/clean-room-equipment-covers"
+      ogUrl="https://marinecanvasflorida.com/industrial/clean-room-equipment-covers"
+    />
     <div className="min-h-screen bg-background pt-24 pb-12">
       {/* Hero Section */}
       <motion.div 
@@ -86,6 +94,7 @@ const LargeFacility = () => {
         </motion.div>
       </div>
     </div>
+    </>
   );
 };
 

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SEOHead from '../components/SEOHead';
 import ContactButtons from '../components/ContactButtons';
 
 const Contact = () => {
@@ -48,7 +49,14 @@ const Contact = () => {
   };
 
   return (
-    <section className="py-24 bg-background text-text transition-colors duration-300 mt-[72px] md:mt-[80px]">
+    <>
+      <SEOHead
+      title="Contact Marine Canvas Florida | Free Consultation — Tarpon Springs"
+      description="Request a free consultation for custom marine canvas, industrial cleanroom systems, or data center containment. Serving Tarpon Springs, Tampa Bay, and all of Florida."
+      canonical="https://marinecanvasflorida.com/contact"
+      ogUrl="https://marinecanvasflorida.com/contact"
+    />
+      <section className="py-24 bg-background text-text transition-colors duration-300 mt-[72px] md:mt-[80px]">
       <div className="container mx-auto px-6 max-w-6xl">
         <h1 className="font-semibold text-4xl md:text-5xl lg:text-6xl text-center text-primary mb-12 leading-tight">
           Get in Touch with Marine Canvas Florida
@@ -224,6 +232,7 @@ const Contact = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

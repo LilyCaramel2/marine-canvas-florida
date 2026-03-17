@@ -1,9 +1,17 @@
 import React from 'react';
+import SEOHead from '../components/SEOHead';
 import { Link } from 'wouter';
 import { services } from '@/data/services';
 
 const Services = () => {
   return (
+    <>
+      <SEOHead
+      title="Marine Canvas Services | Bimini Tops, Enclosures, Boat Covers — Florida"
+      description="Custom bimini tops, full enclosures, boat covers, and marine upholstery fabricated to specification in Tarpon Springs, FL. Serving Tampa Bay, Clearwater, St. Petersburg, and the Gulf Coast."
+      canonical="https://marinecanvasflorida.com/services"
+      ogUrl="https://marinecanvasflorida.com/services"
+    />
     <div className="min-h-screen bg-background pt-24 pb-12">
       {/* Hero Section */}
       <div
@@ -125,6 +133,7 @@ const Services = () => {
         </section>
       </div>
     </div>
+    </>
   );
 };
 

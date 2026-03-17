@@ -1,9 +1,17 @@
 import React from 'react';
+import SEOHead from '../components/SEOHead';
 import { Link } from 'wouter';
 import { motion } from 'framer-motion';
 
 const Showcase = () => {
   return (
+    <>
+      <SEOHead
+      title="Data Center Containment Systems Miami & Florida | Hot-Aisle Cold-Aisle Canvas Solutions"
+      description="Flexible fabric hot-aisle and cold-aisle containment systems for data centers across Miami, Tampa, and Florida. ASHRAE-compliant thermal management for Tier III and IV facilities."
+      canonical="https://marinecanvasflorida.com/industrial/clean-room-containment"
+      ogUrl="https://marinecanvasflorida.com/industrial/clean-room-containment"
+    />
     <div className="min-h-screen bg-background pt-24 pb-12">
       {/* Hero Section */}
       <motion.div 
@@ -86,6 +94,7 @@ const Showcase = () => {
         </motion.div>
       </div>
     </div>
+    </>
   );
 };
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import SEOHead from '../components/SEOHead';
 import { Link } from 'wouter';
 import { motion } from 'framer-motion';
 import {
@@ -102,6 +103,12 @@ const Industrial = () => {
 
   return (
     <div className="min-h-screen bg-background pt-24 pb-12">
+      <SEOHead
+        title="Industrial Canvas Fabrication Florida | Cleanrooms, Data Centers, Equipment Covers"
+        description="ISO 14644-compliant softwall cleanroom systems, data center containment, and precision equipment covers fabricated in Florida. Serving Tampa, Miami, Orlando, and statewide industrial facilities."
+        canonical="https://marinecanvasflorida.com/industrial"
+        ogUrl="https://marinecanvasflorida.com/industrial"
+      />
 
       {/* ── Hero Section with Blueprint Grid Overlay ── */}
       <motion.div
