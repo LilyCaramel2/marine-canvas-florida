@@ -30,7 +30,11 @@ import Projects from "./pages/Projects";
 import ProjectDetail from "./pages/ProjectDetail";
 import Privacy from "./pages/Privacy";
 import Cookies from "./pages/Cookies";
-import NotFound from "./pages/NotFound";
+import NotFound from './pages/NotFound';
+// Geo-targeted landing pages
+import CleanroomsTampa from './pages/geo/CleanroomsTampa';
+import DataCenterMiami from './pages/geo/DataCenterMiami';
+import EquipmentCoversOrlando from './pages/geo/EquipmentCoversOrlando';
 import CookieConsent from "./components/CookieConsent";
 import TidioChatbot from "./components/TidioChatbot";
 
@@ -59,6 +63,10 @@ function Router() {
       <Route path="/industrial/clean-room-containment" component={Showcase} />
       <Route path="/industrial/equipment-protection" component={EquipmentProtection} />
       <Route path="/industrial/shading-solutions" component={ShadingSolutions} />
+      {/* Geo-targeted industrial landing pages */}
+      <Route path="/industrial/cleanrooms-tampa" component={CleanroomsTampa} />
+      <Route path="/industrial/data-center-containment-miami" component={DataCenterMiami} />
+      <Route path="/industrial/equipment-covers-orlando" component={EquipmentCoversOrlando} />
       <Route path="/sailing-with-us" component={SailingWithUs} />
       <Route path="/sailing-contact" component={SailingContactForm} />
       <Route path="/privacy" component={Privacy} />
