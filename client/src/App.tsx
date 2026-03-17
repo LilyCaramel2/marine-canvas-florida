@@ -22,6 +22,10 @@ import Industrial from "./pages/Industrial";
 import Cleanroom from "./pages/Cleanroom";
 import LargeFacility from "./pages/LargeFacility";
 import Showcase from "./pages/Showcase";
+import CleanRoomHub from "./pages/industrial/CleanRoomHub";
+import CleanRoomCurtains from "./pages/industrial/CleanRoomCurtains";
+import CleanRoomEquipmentCovers from "./pages/industrial/CleanRoomEquipmentCovers";
+import CleanRoomContainment from "./pages/industrial/CleanRoomContainment";
 import SailingWithUs from "./pages/SailingWithUs";
 import SailingContactForm from "./pages/SailingContactForm";
 import Projects from "./pages/Projects";
@@ -51,6 +55,10 @@ function Router() {
       <Route path="/blog" component={Blog} />
       <Route path="/contact" component={Contact} />
       <Route path="/industrial" component={Industrial} />
+      <Route path="/industrial/clean-room" component={CleanRoomHub} />
+      <Route path="/industrial/clean-room-curtains" component={CleanRoomCurtains} />
+      <Route path="/industrial/clean-room-equipment-covers" component={CleanRoomEquipmentCovers} />
+      <Route path="/industrial/clean-room-containment" component={CleanRoomContainment} />
       <Route path="/industrial/cleanroom" component={Cleanroom} />
       <Route path="/industrial/large-facility" component={LargeFacility} />
       <Route path="/industrial/showcase" component={Showcase} />

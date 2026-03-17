@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'wouter';
 import { useTheme } from '../contexts/ThemeContext';
-import { Moon, Sun, Menu, X } from 'lucide-react';
+import { Moon, Sun, Menu, X, ChevronDown } from 'lucide-react';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [industrialDropdownOpen, setIndustrialDropdownOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
@@ -32,6 +33,14 @@ const Navbar = () => {
     { href: '/sailing-with-us', label: 'Sailing With Us' },
     { href: '/blog', label: 'Blog' },
     { href: '/contact', label: 'Contact' },
+  ];
+
+  const industrialLinks = [
+    { href: '/industrial', label: 'Industrial Overview' },
+    { href: '/industrial/clean-room', label: 'Clean Room Solutions' },
+    { href: '/industrial/cleanroom', label: 'Cleanroom Canvas' },
+    { href: '/industrial/large-facility', label: 'Large Facility Projects' },
+    { href: '/industrial/showcase', label: 'Project Showcase' },
   ];
 
   return (
@@ -62,6 +71,29 @@ const Navbar = () => {
               <span className="absolute bottom-[-5px] left-0 w-full h-0.5 bg-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" aria-hidden="true"></span>
             </Link>
           ))}
+
+          {/* Industrial Dropdown */}
+          <div className="relative group">
+            <button
+              onClick={() => setIndustrialDropdownOpen(!industrialDropdownOpen)}
+              className={`${linkBaseClasses} ${linkHoverClasses} flex items-center gap-1`}
+            >
+              Industrial
+              <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
+              <span className="absolute bottom-[-5px] left-0 w-full h-0.5 bg-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" aria-hidden="true"></span>
+            </button>
+            <div className="absolute left-0 mt-0 w-48 bg-background border border-border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+              {industrialLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className="block px-4 py-2 text-text hover:text-primary hover:bg-primary/10 transition-colors first:rounded-t-lg last:rounded-b-lg"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
 
           {/* Theme Toggle */}
           <button
@@ -118,6 +150,29 @@ const Navbar = () => {
                 {link.label}
               </Link>
             ))}
+            <div className="border-t border-border pt-4">
+              <button
+                onClick={() => setIndustrialDropdownOpen(!industrialDropdownOpen)}
+                className="text-text hover:text-primary transition-colors duration-200 font-medium flex items-center gap-1 w-full"
+              >
+                Industrial
+                <ChevronDown className={`w-4 h-4 transition-transform ${industrialDropdownOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {industrialDropdownOpen && (
+                <div className="mt-2 pl-4 flex flex-col space-y-2">
+                  {industrialLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      to={link.href}
+                      className="text-text hover:text-primary transition-colors duration-200 text-sm"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       )}
