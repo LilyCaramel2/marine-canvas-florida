@@ -13,12 +13,14 @@ const Footer = () => {
     { label: 'Boat Enclosures', path: '/services/enclosures' },
     { label: 'Protective Covers', path: '/services/boat-covers' },
     { label: 'Marine Upholstery', path: '/services/upholstery' },
+    { label: 'Industrial Solutions', path: '/industrial' },
     { label: 'View All Projects', path: '/projects' },
   ];
 
   const quickLinks = [
     { label: 'Home', path: '/' },
     { label: 'About Us', path: '/about' },
+    { label: 'Industrial', path: '/industrial' },
     { label: 'Gallery', path: '/gallery' },
     { label: 'Sailing With Us', path: '/sailing-with-us' },
     { label: 'Blog', path: '/blog' },

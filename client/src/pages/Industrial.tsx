@@ -26,20 +26,26 @@ const Industrial = () => {
     {
       title: 'Cleanroom Canvas Cooling Protection',
       description: 'Softwall cleanroom canvas systems specified to ISO 14644 standards for pharmaceutical and aerospace facilities.',
-      href: '/industrial/cleanroom',
+      href: '/industrial/clean-room',
       icon: '🔬'
     },
     {
-      title: 'Large Facility and Campus Projects',
-      description: 'Custom shade structures, equipment covers, and campus-wide canvas installations for large corporate facilities.',
-      href: '/industrial/large-facility',
-      icon: '🏢'
+      title: 'Cleanroom Curtains',
+      description: 'Custom cleanroom curtains for contamination control and environmental separation.',
+      href: '/industrial/clean-room-curtains',
+      icon: '🛡️'
     },
     {
-      title: 'Corporate Project Showcase',
-      description: 'View our portfolio of successful industrial and commercial canvas fabrication projects across Florida.',
-      href: '/industrial/showcase',
-      icon: '📊'
+      title: 'Cleanroom Equipment Covers',
+      description: 'Precision-fabricated covers for sensitive cleanroom equipment and machinery.',
+      href: '/industrial/clean-room-equipment-covers',
+      icon: '📦'
+    },
+    {
+      title: 'Cleanroom Containment',
+      description: 'Specialized containment solutions for controlled environments and laboratory spaces.',
+      href: '/industrial/clean-room-containment',
+      icon: '🧪'
     }
   ];
 
@@ -95,7 +101,7 @@ const Industrial = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid md:grid-cols-3 gap-8 mb-16"
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16"
         >
           {industrialServices.map((service, idx) => (
             <Link key={idx} to={service.href}>
