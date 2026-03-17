@@ -2,6 +2,7 @@ import React from 'react';
 import SEOHead from '../components/SEOHead';
 import { Link } from 'wouter';
 import { motion } from 'framer-motion';
+import MasterFabricator from '../components/MasterFabricator';
 import {
   FlaskConical,
   ShieldCheck,
@@ -272,6 +273,9 @@ const Industrial = () => {
             ))}
           </motion.div>
         </motion.section>
+
+        {/* ── Master Fabricator Bio (compact) ── */}
+        <MasterFabricator variant="industrial" />
 
         {/* ── Corporate Inquiry CTA ── */}
         <motion.section
