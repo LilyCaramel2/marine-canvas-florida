@@ -4,6 +4,7 @@ import { createServer } from "http";
 import helmet from "helmet";
 import path from "path";
 import { fileURLToPath } from "url";
+import contactRouter from "./routes/contact.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -15,6 +16,10 @@ async function startServer() {
   // Security headers
   app.use(helmet());
 
+  // ── Body parsing ──
+  app.use(express.json());
+  app.use(express.urlencoded({ extended: true }));
+
   // Rate limiting
   app.use(
     rateLimit({
@@ -22,6 +27,9 @@ async function startServer() {
       max: 200,
     })
   );
+
+  // ── API routes (must be registered BEFORE the SPA catch-all) ──
+  app.use("/api/contact", contactRouter);
 
   // Serve static files from dist/public in production
   const staticPath =
