@@ -3,11 +3,16 @@ import rateLimit from "express-rate-limit";
 import { createServer } from "http";
 import helmet from "helmet";
 import path from "path";
+import fs from "fs";
 import { fileURLToPath } from "url";
 import contactRouter from "./routes/contact.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+// Ensure uploads directory exists for multer file storage
+const uploadsDir = path.join(process.cwd(), "server", "uploads");
+if (!fs.existsSync(uploadsDir)) fs.mkdirSync(uploadsDir, { recursive: true });
 
 async function startServer() {
   const app = express();
@@ -17,6 +22,7 @@ async function startServer() {
   app.use(helmet());
 
   // ── Body parsing ──
+  // Note: multer handles multipart/form-data; express.json handles JSON bodies
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
 
@@ -29,7 +35,8 @@ async function startServer() {
   );
 
   // ── API routes (must be registered BEFORE the SPA catch-all) ──
-  app.use("/api/contact", contactRouter);
+  // contactRouter handles: POST /api/contact, /api/sailing-contact, /api/industrial-contact
+  app.use("/api", contactRouter);
 
   // Serve static files from dist/public in production
   const staticPath =

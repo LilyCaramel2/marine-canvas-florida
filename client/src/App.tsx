@@ -33,6 +33,9 @@ const NotFound               = lazy(() => import("./pages/NotFound"));
 const SailingWithUs          = lazy(() => import("./pages/SailingWithUs"));
 const SailingContactForm     = lazy(() => import("./pages/SailingContactForm"));
 
+// Industrial contact form
+const IndustrialContactForm  = lazy(() => import("./pages/IndustrialContactForm"));
+
 // Industrial
 const Industrial             = lazy(() => import("./pages/Industrial"));
 const Cleanroom              = lazy(() => import("./pages/Cleanroom"));
@@ -94,6 +97,8 @@ function Router() {
         {/* Sailing */}
         <Route path="/sailing-with-us" component={SailingWithUs} />
         <Route path="/sailing-contact" component={SailingContactForm} />
+        {/* Industrial contact */}
+        <Route path="/industrial-contact" component={IndustrialContactForm} />
         {/* Legal */}
         <Route path="/privacy" component={Privacy} />
         <Route path="/cookies" component={Cookies} />

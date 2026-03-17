@@ -1,152 +1,202 @@
 import { Router, Request, Response } from 'express';
+import multer from 'multer';
+import path from 'path';
 import nodemailer from 'nodemailer';
 
 const router = Router();
 
-// ── Nodemailer transporter ──
-// Reads SMTP credentials from environment variables so no secrets are
-// committed to the repository. Set these in Vercel's Environment Variables
-// panel under Settings → Environment Variables.
-//
-// Required env vars:
-//   SMTP_HOST      e.g. smtp.hostinger.com
-//   SMTP_PORT      e.g. 465 (SSL) or 587 (TLS)
-//   SMTP_SECURE    "true" for port 465, "false" for port 587
-//   SMTP_USER      e.g. office@marinecanvasflorida.com
-//   SMTP_PASS      SMTP password (from Hostinger email panel)
-//   CONTACT_TO     Recipient address (defaults to office@marinecanvasflorida.com)
+// ── Multer: accept all file types, 20MB per file, max 10 files ───────────────
+const storage = multer.diskStorage({
+  destination: (_req, _file, cb) => {
+    cb(null, path.join(process.cwd(), 'server', 'uploads'));
+  },
+  filename: (_req, file, cb) => {
+    const unique = `${Date.now()}-${Math.round(Math.random() * 1e9)}`;
+    cb(null, `${unique}-${file.originalname.replace(/[^a-zA-Z0-9._-]/g, '_')}`);
+  },
+});
+const upload = multer({ storage, limits: { fileSize: 20 * 1024 * 1024, files: 10 } });
 
+// ── Nodemailer ───────────────────────────────────────────────────────────────
 const createTransporter = () =>
   nodemailer.createTransport({
     host: process.env.SMTP_HOST || 'smtp.hostinger.com',
     port: Number(process.env.SMTP_PORT) || 465,
-    secure: process.env.SMTP_SECURE !== 'false', // true by default (port 465)
+    secure: process.env.SMTP_SECURE !== 'false',
     auth: {
       user: process.env.SMTP_USER || 'office@marinecanvasflorida.com',
       pass: process.env.SMTP_PASS || '',
     },
   });
 
-// ── POST /api/contact ──
-router.post('/', async (req: Request, res: Response) => {
-  const {
-    name,
-    email,
-    phone,
-    boatType,
-    boatLength,
-    serviceNeeded,
-    location,
-    message,
-    inquiryType,
-  } = req.body as {
-    name?: string;
-    email?: string;
-    phone?: string;
-    boatType?: string;
-    boatLength?: string;
-    serviceNeeded?: string[];
-    location?: string;
-    message?: string;
-    inquiryType?: string;
-  };
+const RECIPIENT = process.env.CONTACT_TO || 'office@marinecanvasflorida.com';
 
-  // ── Server-side validation ──
+// ── Helpers ──────────────────────────────────────────────────────────────────
+function row(label: string, value: string | undefined): string {
+  return `<tr><td style="padding:8px 0;font-weight:bold;width:180px;color:#555;">${label}</td><td style="padding:8px 0;">${value || 'Not provided'}</td></tr>`;
+}
+
+function fileListHtml(files: Express.Multer.File[]): string {
+  if (!files || files.length === 0) return '';
+  const items = files.map(f => `<li>${f.originalname} (${(f.size / 1024).toFixed(1)} KB)</li>`).join('');
+  return `<p style="font-weight:bold;color:#555;margin:16px 0 8px;">Attached Files</p><ul>${items}</ul>`;
+}
+
+function wrap(title: string, subtitle: string, body: string): string {
+  return `<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#1a1a1a;">
+    <div style="background:#1B3A5C;padding:24px;border-radius:8px 8px 0 0;">
+      <h1 style="color:#fff;margin:0;font-size:22px;">${title}</h1>
+      <p style="color:#a0b4c8;margin:4px 0 0;font-size:14px;">${subtitle}</p>
+    </div>
+    <div style="background:#f9f9f9;padding:24px;border:1px solid #e0e0e0;border-top:none;border-radius:0 0 8px 8px;">
+      ${body}
+      <hr style="border:none;border-top:1px solid #e0e0e0;margin:20px 0;" />
+      <p style="font-size:13px;color:#888;margin:0;">
+        Marine Canvas Florida &middot; 495 Brady Rd Suite J, Tarpon Springs, FL 34689<br />
+        <a href="https://marinecanvasflorida.com" style="color:#1B3A5C;">marinecanvasflorida.com</a>
+      </p>
+    </div>
+  </div>`;
+}
+
+// ── POST /api/contact  (Marine Canvas form) ──────────────────────────────────
+router.post('/contact', upload.array('files'), async (req: Request, res: Response) => {
+  const { name, email, phone, inquiryType, boatType, boatLength, serviceNeeded, location, message } = req.body;
+  const files = (req.files as Express.Multer.File[]) || [];
+
   const errors: string[] = [];
   if (!name?.trim()) errors.push('Name is required.');
-  if (!email?.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
-    errors.push('A valid email address is required.');
+  if (!email?.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.push('A valid email address is required.');
   if (!message?.trim()) errors.push('Message is required.');
+  if (errors.length) return res.status(400).json({ success: false, errors });
 
-  if (errors.length > 0) {
-    return res.status(400).json({ success: false, errors });
-  }
+  const servicesText = Array.isArray(serviceNeeded) ? serviceNeeded.join(', ') : serviceNeeded || 'Not specified';
 
-  const recipientTo =
-    process.env.CONTACT_TO || 'office@marinecanvasflorida.com';
-  const servicesText =
-    Array.isArray(serviceNeeded) && serviceNeeded.length > 0
-      ? serviceNeeded.join(', ')
-      : 'Not specified';
-
-  // ── Notification email to Marine Canvas Florida ──
-  const notificationHtml = `
-    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #1a1a1a;">
-      <div style="background: #1B3A5C; padding: 24px; border-radius: 8px 8px 0 0;">
-        <h1 style="color: #ffffff; margin: 0; font-size: 22px;">New Contact Form Submission</h1>
-        <p style="color: #a0b4c8; margin: 4px 0 0; font-size: 14px;">Marine Canvas Florida — marinecanvasflorida.com</p>
-      </div>
-      <div style="background: #f9f9f9; padding: 24px; border: 1px solid #e0e0e0; border-top: none; border-radius: 0 0 8px 8px;">
-        <table style="width: 100%; border-collapse: collapse; font-size: 15px;">
-          <tr><td style="padding: 8px 0; font-weight: bold; width: 160px; color: #555;">Name</td><td style="padding: 8px 0;">${name}</td></tr>
-          <tr><td style="padding: 8px 0; font-weight: bold; color: #555;">Email</td><td style="padding: 8px 0;"><a href="mailto:${email}" style="color: #1B3A5C;">${email}</a></td></tr>
-          <tr><td style="padding: 8px 0; font-weight: bold; color: #555;">Phone</td><td style="padding: 8px 0;">${phone || 'Not provided'}</td></tr>
-          <tr><td style="padding: 8px 0; font-weight: bold; color: #555;">Inquiry Type</td><td style="padding: 8px 0;">${inquiryType || 'Marine Canvas'}</td></tr>
-          <tr><td style="padding: 8px 0; font-weight: bold; color: #555;">Boat Type</td><td style="padding: 8px 0;">${boatType || 'Not specified'}</td></tr>
-          <tr><td style="padding: 8px 0; font-weight: bold; color: #555;">Boat Length</td><td style="padding: 8px 0;">${boatLength || 'Not specified'}</td></tr>
-          <tr><td style="padding: 8px 0; font-weight: bold; color: #555;">Services Needed</td><td style="padding: 8px 0;">${servicesText}</td></tr>
-          <tr><td style="padding: 8px 0; font-weight: bold; color: #555;">Location</td><td style="padding: 8px 0;">${location || 'Not specified'}</td></tr>
-        </table>
-        <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 16px 0;" />
-        <p style="font-weight: bold; color: #555; margin-bottom: 8px;">Message</p>
-        <p style="background: #ffffff; border: 1px solid #e0e0e0; border-radius: 4px; padding: 12px; line-height: 1.6; margin: 0;">${message?.replace(/\n/g, '<br />')}</p>
-      </div>
-    </div>
-  `;
-
-  // ── Auto-reply email to submitter ──
-  const autoReplyHtml = `
-    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #1a1a1a;">
-      <div style="background: #1B3A5C; padding: 24px; border-radius: 8px 8px 0 0;">
-        <h1 style="color: #ffffff; margin: 0; font-size: 22px;">Thank You, ${name}</h1>
-        <p style="color: #a0b4c8; margin: 4px 0 0; font-size: 14px;">Marine Canvas Florida — We have received your inquiry.</p>
-      </div>
-      <div style="background: #f9f9f9; padding: 24px; border: 1px solid #e0e0e0; border-top: none; border-radius: 0 0 8px 8px;">
-        <p style="font-size: 15px; line-height: 1.7; margin-top: 0;">
-          Thank you for reaching out to Marine Canvas Florida. We have received your inquiry and will be in touch within one business day.
-        </p>
-        <p style="font-size: 15px; line-height: 1.7;">
-          If your project is time-sensitive, you are welcome to call us directly at <a href="tel:+17272187157" style="color: #1B3A5C; font-weight: bold;">(727) 218-7157</a>.
-        </p>
-        <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 20px 0;" />
-        <p style="font-size: 13px; color: #888; margin: 0;">
-          Marine Canvas Florida · 495 Brady Rd Suite J, Tarpon Springs, FL 34689<br />
-          <a href="https://marinecanvasflorida.com" style="color: #1B3A5C;">marinecanvasflorida.com</a>
-        </p>
-      </div>
-    </div>
-  `;
+  const notificationBody = `
+    <table style="width:100%;border-collapse:collapse;font-size:15px;">
+      ${row('Name', name)}${row('Email', `<a href="mailto:${email}" style="color:#1B3A5C;">${email}</a>`)}
+      ${row('Phone', phone)}${row('Inquiry Type', inquiryType || 'Marine Canvas')}
+      ${row('Boat Type', boatType)}${row('Boat Length', boatLength)}
+      ${row('Services Needed', servicesText)}${row('Location', location)}
+    </table>
+    <hr style="border:none;border-top:1px solid #e0e0e0;margin:16px 0;" />
+    <p style="font-weight:bold;color:#555;margin-bottom:8px;">Message</p>
+    <p style="background:#fff;border:1px solid #e0e0e0;border-radius:4px;padding:12px;line-height:1.6;margin:0;">${(message || '').replace(/\n/g, '<br />')}</p>
+    ${fileListHtml(files)}`;
 
   try {
-    const transporter = createTransporter();
-
-    // Send notification to the business
-    await transporter.sendMail({
-      from: `"Marine Canvas Florida Website" <${process.env.SMTP_USER || 'office@marinecanvasflorida.com'}>`,
-      to: recipientTo,
-      replyTo: email,
-      subject: `New Inquiry from ${name} — Marine Canvas Florida`,
-      html: notificationHtml,
+    const t = createTransporter();
+    await t.sendMail({
+      from: `"Marine Canvas Florida Website" <${process.env.SMTP_USER || RECIPIENT}>`,
+      to: RECIPIENT, replyTo: email,
+      subject: `New Marine Canvas Inquiry from ${name}`,
+      html: wrap('New Marine Canvas Inquiry', 'Marine Canvas Florida', notificationBody),
+      attachments: files.map(f => ({ filename: f.originalname, path: f.path })),
     });
-
-    // Send auto-reply to the submitter
-    await transporter.sendMail({
-      from: `"Marine Canvas Florida" <${process.env.SMTP_USER || 'office@marinecanvasflorida.com'}>`,
+    await t.sendMail({
+      from: `"Marine Canvas Florida" <${process.env.SMTP_USER || RECIPIENT}>`,
       to: email,
       subject: 'We have received your inquiry — Marine Canvas Florida',
-      html: autoReplyHtml,
+      html: wrap(`Thank You, ${name}`, 'Marine Canvas Florida', `<p style="font-size:15px;line-height:1.7;margin-top:0;">We have received your inquiry and will be in touch within one business day.</p><p style="font-size:15px;line-height:1.7;">Call us at <a href="tel:+17272187157" style="color:#1B3A5C;font-weight:bold;">(727) 218-7157</a> for urgent projects.</p>`),
     });
-
-    return res.status(200).json({
-      success: true,
-      message: 'Your inquiry has been sent. We will be in touch shortly.',
-    });
+    return res.status(200).json({ success: true, message: 'Your inquiry has been sent. We will be in touch shortly.' });
   } catch (err) {
-    console.error('[contact route] Email send error:', err);
-    return res.status(500).json({
-      success: false,
-      errors: ['Failed to send your message. Please try again or email us directly at office@marinecanvasflorida.com.'],
+    console.error('[contact] Email error:', err);
+    return res.status(500).json({ success: false, errors: ['Failed to send your message. Please call us at (727) 218-7157.'] });
+  }
+});
+
+// ── POST /api/sailing-contact  (Sailing enquiry form) ───────────────────────
+router.post('/sailing-contact', upload.array('files'), async (req: Request, res: Response) => {
+  const { name, email, phone, sailingLevel, tripDuration, tripType, boatPreference, certificationGoal, seaMilesNeeded, tripDescription, preferredDates } = req.body;
+  const files = (req.files as Express.Multer.File[]) || [];
+
+  const errors: string[] = [];
+  if (!name?.trim()) errors.push('Name is required.');
+  if (!email?.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.push('A valid email address is required.');
+  if (!tripDescription?.trim()) errors.push('Please describe your sailing goals.');
+  if (errors.length) return res.status(400).json({ success: false, errors });
+
+  const notificationBody = `
+    <table style="width:100%;border-collapse:collapse;font-size:15px;">
+      ${row('Name', name)}${row('Email', `<a href="mailto:${email}" style="color:#1B3A5C;">${email}</a>`)}
+      ${row('Phone', phone)}${row('Sailing Level', sailingLevel)}
+      ${row('Trip Duration', tripDuration)}${row('Trip Type', tripType)}
+      ${row('Boat Preference', boatPreference)}${row('Certification Goal', certificationGoal)}
+      ${row('Sea Miles Needed', seaMilesNeeded)}${row('Preferred Dates', preferredDates)}
+    </table>
+    <hr style="border:none;border-top:1px solid #e0e0e0;margin:16px 0;" />
+    <p style="font-weight:bold;color:#555;margin-bottom:8px;">Trip Description</p>
+    <p style="background:#fff;border:1px solid #e0e0e0;border-radius:4px;padding:12px;line-height:1.6;margin:0;">${(tripDescription || '').replace(/\n/g, '<br />')}</p>
+    ${fileListHtml(files)}`;
+
+  try {
+    const t = createTransporter();
+    await t.sendMail({
+      from: `"Marine Canvas Florida Website" <${process.env.SMTP_USER || RECIPIENT}>`,
+      to: RECIPIENT, replyTo: email,
+      subject: `New Sailing Enquiry from ${name}`,
+      html: wrap('New Sailing Enquiry', 'Marine Canvas Florida — Sailing With Us', notificationBody),
+      attachments: files.map(f => ({ filename: f.originalname, path: f.path })),
     });
+    await t.sendMail({
+      from: `"Marine Canvas Florida" <${process.env.SMTP_USER || RECIPIENT}>`,
+      to: email,
+      subject: 'Your sailing enquiry — Marine Canvas Florida',
+      html: wrap(`Thank You, ${name}`, 'We have received your sailing enquiry.', `<p style="font-size:15px;line-height:1.7;margin-top:0;">We have received your sailing enquiry and will be in touch within one business day.</p><p style="font-size:15px;line-height:1.7;">Call us at <a href="tel:+17272187157" style="color:#1B3A5C;font-weight:bold;">(727) 218-7157</a>.</p>`),
+    });
+    return res.status(200).json({ success: true, message: 'Your sailing enquiry has been sent. We will be in touch shortly.' });
+  } catch (err) {
+    console.error('[sailing-contact] Email error:', err);
+    return res.status(500).json({ success: false, errors: ['Failed to send your enquiry. Please call us at (727) 218-7157.'] });
+  }
+});
+
+// ── POST /api/industrial-contact  (Industrial enquiry form) ─────────────────
+router.post('/industrial-contact', upload.array('files'), async (req: Request, res: Response) => {
+  const { name, email, phone, company, facilityType, facilitySize, complianceRequirements, timeline, budget, projectDescription, location } = req.body;
+  const files = (req.files as Express.Multer.File[]) || [];
+
+  const errors: string[] = [];
+  if (!name?.trim()) errors.push('Name is required.');
+  if (!email?.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.push('A valid email address is required.');
+  if (!projectDescription?.trim()) errors.push('Please describe your project requirements.');
+  if (errors.length) return res.status(400).json({ success: false, errors });
+
+  const complianceText = Array.isArray(complianceRequirements) ? complianceRequirements.join(', ') : complianceRequirements || 'Not specified';
+
+  const notificationBody = `
+    <table style="width:100%;border-collapse:collapse;font-size:15px;">
+      ${row('Name', name)}${row('Company', company)}
+      ${row('Email', `<a href="mailto:${email}" style="color:#1B3A5C;">${email}</a>`)}${row('Phone', phone)}
+      ${row('Location', location)}${row('Facility Type', facilityType)}
+      ${row('Facility Size', facilitySize)}${row('Compliance Requirements', complianceText)}
+      ${row('Project Timeline', timeline)}${row('Budget Range', budget)}
+    </table>
+    <hr style="border:none;border-top:1px solid #e0e0e0;margin:16px 0;" />
+    <p style="font-weight:bold;color:#555;margin-bottom:8px;">Project Description</p>
+    <p style="background:#fff;border:1px solid #e0e0e0;border-radius:4px;padding:12px;line-height:1.6;margin:0;">${(projectDescription || '').replace(/\n/g, '<br />')}</p>
+    ${fileListHtml(files)}`;
+
+  try {
+    const t = createTransporter();
+    await t.sendMail({
+      from: `"Marine Canvas Florida Website" <${process.env.SMTP_USER || RECIPIENT}>`,
+      to: RECIPIENT, replyTo: email,
+      subject: `New Industrial Enquiry from ${name}${company ? ` — ${company}` : ''}`,
+      html: wrap('New Industrial Project Enquiry', 'Adriatic Lux | Marine Canvas Florida — Industrial Division', notificationBody),
+      attachments: files.map(f => ({ filename: f.originalname, path: f.path })),
+    });
+    await t.sendMail({
+      from: `"Marine Canvas Florida Industrial" <${process.env.SMTP_USER || RECIPIENT}>`,
+      to: email,
+      subject: 'Your industrial project enquiry — Marine Canvas Florida',
+      html: wrap(`Thank You, ${name}`, 'Adriatic Lux | Marine Canvas Florida — Industrial Division', `<p style="font-size:15px;line-height:1.7;margin-top:0;">We have received your industrial project specifications and will contact you within 48 hours.</p><p style="font-size:15px;line-height:1.7;">For urgent tenders, call <a href="tel:+17272187157" style="color:#1B3A5C;font-weight:bold;">(727) 218-7157</a>.</p>`),
+    });
+    return res.status(200).json({ success: true, message: 'Your industrial enquiry has been received. We will contact you within 48 hours.' });
+  } catch (err) {
+    console.error('[industrial-contact] Email error:', err);
+    return res.status(500).json({ success: false, errors: ['Failed to send your enquiry. Please call us at (727) 218-7157.'] });
   }
 });
 
