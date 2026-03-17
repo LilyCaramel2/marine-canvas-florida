@@ -7,6 +7,7 @@ import ReviewsCarousel from '../components/ReviewsCarousel';
 import Testimonials from '../components/Testimonials';
 import ServiceAreas from '../components/ServiceAreas';
 import CallToAction from '../components/CallToAction';
+import AdriaticLuxHeritage from '../components/AdriaticLuxHeritage';
 
 const Home = () => {
   return (
@@ -20,6 +21,7 @@ const Home = () => {
       <Hero />
       <Services />
       <WhyChooseUs />
+      <AdriaticLuxHeritage variant="marine" />
       <ReviewsCarousel />
       <Testimonials />
       <ServiceAreas />

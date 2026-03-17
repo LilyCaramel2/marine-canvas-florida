@@ -3,6 +3,7 @@ import SEOHead from '../components/SEOHead';
 import { Link } from 'wouter';
 import { motion } from 'framer-motion';
 import MasterFabricator from '../components/MasterFabricator';
+import AdriaticLuxHeritage from '../components/AdriaticLuxHeritage';
 import {
   FlaskConical,
   ShieldCheck,
@@ -275,7 +276,8 @@ const Industrial = () => {
         </motion.section>
 
         {/* ── Master Fabricator Bio (compact) ── */}
-        <MasterFabricator variant="industrial" />
+        <AdriaticLuxHeritage variant="industrial" />
+      <MasterFabricator variant="industrial" />
 
         {/* ── Corporate Inquiry CTA ── */}
         <motion.section

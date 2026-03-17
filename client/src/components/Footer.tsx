@@ -54,6 +54,10 @@ const Footer = () => {
               <p className="text-sm leading-relaxed opacity-90 group-hover:opacity-100 transition-opacity">
                 Premium marine canvas solutions combining ocean-tested quality with meticulous craftsmanship and exceptional service in Tarpon Springs.
               </p>
+              <div className="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/40 bg-white/5">
+                <Anchor className="w-3 h-3 text-accent" />
+                <span className="text-xs font-semibold text-accent tracking-wide">Powered by Adriatic Lux</span>
+              </div>
               {/* Social Links */}
               <div className="flex gap-4 mt-6">
                 <a

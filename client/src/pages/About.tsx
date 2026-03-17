@@ -2,6 +2,7 @@ import React from 'react';
 import SEOHead from '../components/SEOHead';
 import { Award, Users, Zap, Heart } from 'lucide-react';
 import MasterFabricator from '../components/MasterFabricator';
+import AdriaticLuxHeritage from '../components/AdriaticLuxHeritage';
 import { Link } from 'wouter';
 
 const About = () => {
@@ -136,7 +137,8 @@ const About = () => {
         </section>
 
         {/* Master Fabricator Bio */}
-        <MasterFabricator variant="about" />
+        <AdriaticLuxHeritage variant="marine" />
+      <MasterFabricator variant="about" />
 
         {/* CTA Section */}
         <section className="bg-gradient-to-r from-primary to-secondary rounded-lg p-12 text-center text-white">

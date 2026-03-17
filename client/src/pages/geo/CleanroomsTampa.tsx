@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'wouter';
 import SEOHead from '../../components/SEOHead';
 import MasterFabricator from '../../components/MasterFabricator';
+import AdriaticLuxHeritage from '../../components/AdriaticLuxHeritage';
 import { FlaskConical, ShieldCheck, Package, CheckCircle, ArrowRight } from 'lucide-react';
 
 // ── JSON-LD Schema ─────────────────────────────────────────────────────────
@@ -183,7 +184,8 @@ const CleanroomsTampa: React.FC = () => {
           </section>
 
           {/* ── Master Fabricator (compact) ── */}
-          <MasterFabricator variant="industrial" />
+          <AdriaticLuxHeritage variant="industrial" />
+      <MasterFabricator variant="industrial" />
 
           {/* ── CTA ── */}
           <section className="bg-gradient-to-r from-slate-800 to-slate-700 rounded-xl p-10 text-center text-white shadow-xl">
