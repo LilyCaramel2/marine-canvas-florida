@@ -62,7 +62,7 @@ const MasterFabricator: React.FC<MasterFabricatorProps> = ({ variant = 'about' }
               <img
                 src="/images/team/peck-filipovic.png"
                 alt="Peck Filipovic — Master Fabricator and Founder of Marine Canvas Florida"
-                className="w-full rounded-2xl shadow-2xl object-cover aspect-[4/5]"
+                className="w-full rounded-2xl shadow-2xl object-cover object-top aspect-[3/4]"
                 loading="lazy"
               />
               {/* Name plate overlay */}
@@ -141,11 +141,11 @@ const MasterFabricator: React.FC<MasterFabricatorProps> = ({ variant = 'about' }
       <div className="relative flex flex-col md:flex-row gap-0">
 
         {/* Photo column */}
-        <div className="md:w-64 flex-shrink-0">
+        <div className="md:w-56 flex-shrink-0 flex items-stretch">
           <img
             src="/images/team/peck-filipovic.png"
             alt="Peck Filipovic — Master Fabricator"
-            className="w-full h-56 md:h-full object-cover"
+            className="w-full object-cover object-top md:min-h-full aspect-[3/4] md:aspect-auto"
             loading="lazy"
           />
         </div>
