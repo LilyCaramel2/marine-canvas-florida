@@ -151,7 +151,7 @@ export default function SailingContactForm() {
       />
       <div
         className="relative w-full h-64 bg-cover bg-center"
-        style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&h=400&fit=crop)' }}
+        style={{ backgroundImage: 'url(/images/team/ella-peck-atlantic.jpg)' }}
       >
         <div className="absolute inset-0 bg-blue-900/70" />
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4 pt-16">

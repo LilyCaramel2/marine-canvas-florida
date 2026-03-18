@@ -60,14 +60,14 @@ const MasterFabricator: React.FC<MasterFabricatorProps> = ({ variant = 'about' }
           <div className="flex flex-col items-center gap-6">
             <div className="relative w-full max-w-sm mx-auto">
               <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=700&fit=crop&crop=face"
-                alt="Peck Godden — Master Fabricator and Founder of Marine Canvas Florida"
+                src="/images/team/peck-filipovic.png"
+                alt="Peck Filipovic — Master Fabricator and Founder of Marine Canvas Florida"
                 className="w-full rounded-2xl shadow-2xl object-cover aspect-[4/5]"
                 loading="lazy"
               />
               {/* Name plate overlay */}
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent rounded-b-2xl px-6 py-5">
-                <p className="text-white font-bold text-xl leading-tight">Peck Godden</p>
+                <p className="text-white font-bold text-xl leading-tight">Peck Filipovic</p>
                 <p className="text-white/75 text-sm">Master Fabricator &amp; Founder</p>
                 <p className="text-white/60 text-xs mt-1">Marine Canvas Florida · Tarpon Springs, FL</p>
               </div>
@@ -92,7 +92,7 @@ const MasterFabricator: React.FC<MasterFabricatorProps> = ({ variant = 'about' }
           <div className="flex flex-col gap-6">
             <div className="space-y-5 text-foreground/80 leading-relaxed text-base">
               <p>
-                Peck Godden grew up in Tarpon Springs, Florida — a city whose identity is inseparable from the sea. Shaped by the Greek sponge-diving heritage that built this community, Peck developed an early understanding of materials under stress: how canvas behaves in salt air, how rigging holds under load, and why precision is not a preference but a requirement when lives depend on your work.
+                Peck Filipovic grew up in Tarpon Springs, Florida — a city whose identity is inseparable from the sea. Shaped by the Greek sponge-diving heritage that built this community, Peck developed an early understanding of materials under stress: how canvas behaves in salt air, how rigging holds under load, and why precision is not a preference but a requirement when lives depend on your work.
               </p>
               <p>
                 Over three decades, Peck refined his craft across the full spectrum of marine fabrication — from bimini tops and full enclosures on coastal powerboats to complex tensile rigging systems aboard superyachts. It is this yacht-grade discipline — the insistence on zero-tolerance seam work, correct load distribution, and materials specified to the environment — that sets Marine Canvas Florida apart from every competitor in the region.
@@ -112,7 +112,7 @@ const MasterFabricator: React.FC<MasterFabricatorProps> = ({ variant = 'about' }
                 "The standard I hold on a superyacht is the same standard I hold in a cleanroom. The material changes. The discipline does not."
               </p>
               <footer className="mt-3 text-sm text-foreground/55 not-italic">
-                — Peck Godden, Master Fabricator &amp; Founder
+                — Peck Filipovic, Master Fabricator &amp; Founder
               </footer>
             </blockquote>
           </div>
@@ -143,8 +143,8 @@ const MasterFabricator: React.FC<MasterFabricatorProps> = ({ variant = 'about' }
         {/* Photo column */}
         <div className="md:w-64 flex-shrink-0">
           <img
-            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=480&fit=crop&crop=face"
-            alt="Peck Godden — Master Fabricator"
+            src="/images/team/peck-filipovic.png"
+            alt="Peck Filipovic — Master Fabricator"
             className="w-full h-56 md:h-full object-cover"
             loading="lazy"
           />
@@ -156,7 +156,7 @@ const MasterFabricator: React.FC<MasterFabricatorProps> = ({ variant = 'about' }
             <span className="text-blue-400 text-xs font-semibold tracking-widest uppercase mb-2 block">
               The Craftsman Behind the Specification
             </span>
-            <h3 className="text-2xl font-bold text-white mb-1">Peck Godden</h3>
+            <h3 className="text-2xl font-bold text-white mb-1">Peck Filipovic</h3>
             <p className="text-blue-300 text-sm font-medium mb-4">Master Fabricator &amp; Founder — Marine Canvas Florida</p>
             <p className="text-slate-300 text-sm leading-relaxed">
               Thirty years of marine and industrial fabrication — from superyacht rigging in Tarpon Springs to ISO 14644-compliant cleanroom systems across Florida. Peck brings yacht-grade zero-tolerance standards to every industrial project: correct material specification, precision seam work, and installation accountability that matches the demands of Tier III data centers, pharmaceutical cleanrooms, and government facilities.
