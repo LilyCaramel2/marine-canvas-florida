@@ -20,8 +20,17 @@ const ServiceAreas = () => {
           </Link>
         </div>
         <div className="md:w-1/2 flex justify-center">
-          <div className="w-full h-64 md:h-80 bg-card rounded-lg shadow-lg flex items-center justify-center border border-border text-text">
-            <p className="text-center">Service Area Map</p>
+          <div className="w-full rounded-lg shadow-lg overflow-hidden border border-border">
+            <iframe
+              title="Marine Canvas Florida — Tarpon Springs"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3516.2!2d-82.7573!3d28.1459!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2f0b8b8b8b8b8%3A0x0!2s495+Brady+Rd+Suite+J%2C+Tarpon+Springs%2C+FL+34689!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+              width="100%"
+              height="360"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
           </div>
         </div>
       </div>

@@ -45,7 +45,7 @@ const CookieConsent = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
           transition={{ duration: 0.3 }}
-          className="fixed bottom-4 right-4 z-40 max-w-xs"
+          className="fixed bottom-4 right-4 z-50 w-[calc(100vw-2rem)] max-w-xs"
         >
           <div className="bg-card border border-border rounded-lg shadow-lg p-4">
             {/* Close Button */}
