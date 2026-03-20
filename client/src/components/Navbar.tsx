@@ -40,12 +40,12 @@ const Navbar = () => {
   }, []);
 
   const navbarClasses = `fixed top-0 left-0 w-full z-50 py-4 transition-all duration-300 ${
-    scrolled ? 'bg-background shadow-md' : 'bg-transparent'
+    scrolled ? 'bg-background shadow-md' : 'bg-black/30 backdrop-blur-sm'
   }`;
 
   const linkBaseClasses =
     'font-medium text-lg relative group focus:outline-none focus:ring-2 focus:ring-accent focus:rounded';
-  const linkHoverClasses = 'text-text hover:text-primary';
+  const linkHoverClasses = scrolled ? 'text-text hover:text-primary' : 'text-white hover:text-yellow-300';
 
   const navLinks = [
     { href: '/', label: 'Home' },

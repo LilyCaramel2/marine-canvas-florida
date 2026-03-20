@@ -56,7 +56,7 @@ const Footer = () => {
               </p>
               <div className="mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent/40 bg-white/5">
                 <Anchor className="w-3 h-3 text-accent" />
-                <span className="text-xs font-semibold text-accent tracking-wide">Powered by Adriatic Lux</span>
+                <span className="text-xs font-semibold text-accent tracking-wide">Adriatic Lux Heritage Workshop · Est. 2014</span>
               </div>
               {/* Social Links */}
               <div className="flex gap-4 mt-6">
@@ -165,7 +165,7 @@ const Footer = () => {
         {/* Caramel Digital Studio Branding */}
         <div className="container mx-auto px-4 py-8 flex flex-col items-center justify-center">
           <a
-            href="https://www.carameldigital.online"
+            href="https://www.fiverr.com/lily_caramel"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-3 group cursor-pointer hover:scale-105 transition-transform duration-300"

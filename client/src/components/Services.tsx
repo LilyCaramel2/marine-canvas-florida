@@ -8,31 +8,37 @@ const Services = () => {
       title: "Custom Bimini Tops & T-Tops",
       description: "Precision-crafted for superior shade and sun protection for yachts and fishing boats, using premium Sunbrella® fabrics and durable 316 stainless steel.",
       link: "/services/bimini-tops",
+      cta: "Explore Bimini Tops →",
     },
     {
       title: "Full Boat Enclosures",
       description: "Tailored weatherproofing from wind, rain, and spray, extending your boating season with crystal-clear Strataglass® or O'Sea vinyl and robust YKK® zippers.",
       link: "/services/enclosures",
+      cta: "Explore Enclosures →",
     },
     {
       title: "Protective Boat Covers",
       description: "Durable, custom-fit covers designed to safeguard your vessel from damaging UV rays, debris, and harsh Florida weather, fabricated with high-performance marine fabrics.",
       link: "/services/boat-covers",
+      cta: "Explore Boat Covers →",
     },
     {
       title: "Marine Upholstery",
       description: "Revitalize your boat's interior with durable, mildew-resistant marine-grade upholstery, custom-designed for comfort and aesthetic, using SolarFix® thread.",
       link: "/services/upholstery",
+      cta: "Explore Upholstery →",
     },
     {
       title: "Marine Canvas Repair & Restitch",
       description: "Expert repair and restitching services to extend the life of your existing marine canvas, restoring functionality and appearance with durable materials and craftsmanship.",
       link: "/contact",
+      cta: "Get a Repair Quote →",
     },
     {
       title: "Dodgers & Sprayhoods",
       description: "Custom-designed dodgers and sprayhoods offering superior protection from wind, spray, and sun, enhancing comfort in the cockpit with robust marine fabrics.",
       link: "/contact",
+      cta: "Request a Quote →",
     }
   ];
 
@@ -73,7 +79,7 @@ const Services = () => {
               <h3 className="font-medium text-2xl text-primary mb-4">{service.title}</h3>
               <p className="text-base text-text flex-grow mb-6 leading-relaxed">{service.description}</p>
               <Link to={service.link} className="btn-primary inline-block hover:shadow-lg transition-all duration-300">
-                Learn More →
+                {service.cta}
               </Link>
             </motion.div>
           ))}

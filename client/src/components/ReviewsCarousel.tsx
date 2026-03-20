@@ -127,23 +127,26 @@ const ReviewsCarousel = () => {
           </button>
         </div>
 
-        {/* Pagination Dots */}
-        <div className="flex justify-center gap-2 mt-8 flex-wrap">
-          {reviews.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => {
-                setCurrentIndex(index);
-                setIsAutoPlay(false);
-              }}
-              className={`transition-all duration-300 rounded-full ${
-                index === currentIndex
-                  ? 'bg-primary w-3 h-3'
-                  : 'bg-border hover:bg-muted w-2 h-2'
-              }`}
-              aria-label={`Go to review ${index + 1}`}
-            />
-          ))}
+        {/* Pagination Dots — sliding 5-dot window */}
+        <div className="flex justify-center gap-2 mt-8">
+          {(() => {
+            const total = reviews.length;
+            const maxDots = 5;
+            const half = Math.floor(maxDots / 2);
+            let start = Math.max(0, currentIndex - half);
+            let end = Math.min(total - 1, start + maxDots - 1);
+            if (end - start < maxDots - 1) start = Math.max(0, end - maxDots + 1);
+            return Array.from({ length: end - start + 1 }, (_, i) => start + i).map((index) => (
+              <button
+                key={index}
+                onClick={() => { setCurrentIndex(index); setIsAutoPlay(false); }}
+                className={`transition-all duration-300 rounded-full ${
+                  index === currentIndex ? 'bg-primary w-3 h-3' : 'bg-border hover:bg-muted w-2 h-2'
+                }`}
+                aria-label={`Go to review ${index + 1}`}
+              />
+            ));
+          })()}
         </div>
 
         {/* Review Counter */}
